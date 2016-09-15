@@ -40,7 +40,7 @@ var roleHarvester = {
             } else {
                 var roadsToRepair = creep.room.find(FIND_STRUCTURES, {
                     filter: function(object){
-                        return object.structureType === STRUCTURE_ROAD && (object.hits > object.hitsMax / 3);
+                        return object.structureType === STRUCTURE_ROAD && (object.hits < object.hitsMax);
                     }
                 });
                 if (roadsToRepair){
