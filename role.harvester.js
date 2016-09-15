@@ -38,7 +38,7 @@ var roleHarvester = {
                     creep.moveTo(target);
                 }
             } else {
-                creep.moveTo(Game.flags.flag1);
+                creep.moveTo(Game.flags.Flag1);
             }
         }
     }
