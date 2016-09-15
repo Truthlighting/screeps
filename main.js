@@ -28,7 +28,7 @@ module.exports.loop = function () {
             creep.moveTo(Game.spawns['Spawn1']);
         }
     }
-}
+
 
 
     for(var name in Memory.creeps) {
