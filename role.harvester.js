@@ -38,7 +38,7 @@ var roleHarvester = {
                     creep.moveTo(target);
                 }
             } else {
-                creep.moveTo(Game.flags.'Harvester Rally Point');
+                creep.moveTo(Game.flags.Harvester Rally Point);
             }
         }
     }
