@@ -17,14 +17,17 @@ var roleHarvester = {
         if(!creep.memory.transporting) {
 
             //var sources = creep.room.find(FIND_SOURCES);
-            var target = creep.pos.findClosestByPath(FIND_SOURCES);
+            var target = creep.pos.findClosestByPath(FIND_SOURCES, {
+                filter: (source) => { source.energy > 0 }
+            })
+
             if(creep.harvest(target) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(target);
                 //if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
                 //    creep.moveTo(sources[0]);
             }
-        }
-        else {
+
+        } else {
             var targets = creep.room.find(FIND_STRUCTURES, {
                         filter: (structure) => {
                             return (structure.structureType == STRUCTURE_EXTENSION ||
@@ -39,6 +42,7 @@ var roleHarvester = {
                 if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target);
                 }
+
             } else {
                 var roadsToRepair = creep.room.find(FIND_STRUCTURES, {
                     filter: function(object){
