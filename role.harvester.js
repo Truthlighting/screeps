@@ -44,11 +44,13 @@ var roleHarvester = {
                     }
                 });
                 if (roadsToRepair){
-                    creep.say("Mvg to Rpr");
+                    //creep.say("Mvg to Rpr");
                     var targetRoad = creep.pos.findClosestByPath(roadsToRepair);
-                    creep.moveTo(targetRoad);
-                    creep.say("Repairing");
-                    creep.repair(targetRoad);
+                    if (creep.repair(targetRoad) === ERR_NOT_IN_RANGE) {
+                        creep.moveTo(targetRoad);
+                        creep.say("Mvg to Repair");
+                    }
+
 
                     // perhaps check the results again?
 
