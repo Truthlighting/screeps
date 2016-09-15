@@ -38,16 +38,17 @@ var roleHarvester = {
                     creep.moveTo(target);
                 }
             } else {
-                var roadToRepair = creep.pos.findClosest(FIND_STRUCTURES, {
+                var roadsToRepair = creep.room.find(FIND_STRUCTURES, {
                     filter: function(object){
                         return object.structureType === STRUCTURE_ROAD && (object.hits > object.hitsMax / 3);
                     }
                 });
-                if (roadToRepair){
+                if (roadsToRepair){
                     creep.say("Mvg to Rpr");
-                    creep.moveTo(roadToRepair);
+                    var targetRoad = creep.pos.findClosestByPath(roadsToRepair);
+                    creep.moveTo(targetRoad);
                     creep.say("Repairing");
-                    creep.repair(roadToRepair);
+                    creep.repair(targetRoad);
 
                     // perhaps check the results again?
 
