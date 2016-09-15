@@ -52,7 +52,7 @@ module.exports.loop = function () {
 
     for(var creepName in Game.creeps) {
         var creep = Game.creeps[creepName];
-        if(creep.memory.role == 'harvester') {
+        if(creep.memory.role == 'harvester' || creep == 'H-1') {
             roleHarvester.run(creep);
         }
         if(creep.memory.role == 'upgrader') {
