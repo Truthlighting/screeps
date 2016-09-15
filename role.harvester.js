@@ -44,7 +44,9 @@ var roleHarvester = {
                     }
                 });
                 if (roadToRepair){
+                    creep.say("Mvg to Rpr");
                     creep.moveTo(roadToRepair);
+                    creep.say("Repairing");
                     creep.repair(roadToRepair);
 
                     // perhaps check the results again?
