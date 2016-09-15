@@ -44,7 +44,7 @@ module.exports.loop = function () {
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
 //    console.log('Upgraders: ' + harvesters.length);
 
-    if(builders.length < 3 && harvesters.length >= 4 && Game.spawns['Harmony'].canCreateCreep([WORK,CARRY,MOVE], "B-" + Memory.bCreepID)==OK) {
+    if(builders.length < 4 && harvesters.length >= 4 && Game.spawns['Harmony'].canCreateCreep([WORK,CARRY,MOVE], "B-" + Memory.bCreepID)==OK) {
         var newName = Game.spawns['Harmony'].createCreep([WORK,CARRY,MOVE], "B-" + Memory.bCreepID, {role: 'builder'});
         Memory.bCreepID++;
         console.log('Spawning new builder: ' + newName);
