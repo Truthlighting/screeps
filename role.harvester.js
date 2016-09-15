@@ -32,7 +32,7 @@ var roleHarvester = {
                             structure.structureType == STRUCTURE_SPAWN ||
                             structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
                         }
-            });
+            })
 
             if(targets.length > 0) {
                 var target = creep.pos.findClosestByPath(targets);
