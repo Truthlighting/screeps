@@ -38,7 +38,21 @@ var roleHarvester = {
                     creep.moveTo(target);
                 }
             } else {
-                creep.moveTo(Game.flags.Flag1);
+                var roadToRepair = creep.pos.findClosest(FIND_STRUCTURES, {
+                    filter: function(object){
+                        return object.structureType === STRUCTURE_ROAD && (object.hits > object.hitsMax / 3);
+                    }
+                });
+                if (roadToRepair){
+                    creep.moveTo(roadToRepair);
+                    creep.repair(roadToRepair);
+
+                    // perhaps check the results again?
+
+                } else {
+                    // nothing to repair
+                    creep.moveTo(Game.flags.Flag1);
+                }
             }
         }
     }
