@@ -17,10 +17,10 @@ var roleHarvester = {
         if(!creep.memory.transporting) {
 
             //var sources = creep.room.find(FIND_SOURCES);
-            var target = creep.pos.findClosestByPath(FIND_SOURCES, {
+            var target = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE); /*, {
                 filter: (source) => { source.energy > 0 }
-            })
-            creep.say("H-"+target);
+            })*/
+            //creep.say("H-"+target);
             //creep.say("H - " + target.energy);
             if(creep.harvest(target) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(target);
