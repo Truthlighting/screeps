@@ -35,7 +35,7 @@ module.exports.loop = function () {
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
 //    console.log('Upgraders: ' + harvesters.length);
 
-    if(upgraders.length < 3 && harvesters.length >= 3 && Game.spawns['Harmony'].canCreateCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], "U-" + Memory.uCreepID)==OK) {
+    if(upgraders.length < 2 && harvesters.length >= 3 && Game.spawns['Harmony'].canCreateCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], "U-" + Memory.uCreepID)==OK) {
         var newName = Game.spawns['Harmony'].createCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], "U-" + Memory.uCreepID, {role: 'upgrader'});
         Memory.uCreepID++;
         console.log('Spawning new upgrader: ' + newName);
