@@ -39,7 +39,6 @@ var roleBuilder = {
                     var wallToRepair = creep.pos.findClosestByPath(wallsToRepair);
                     if (creep.repair(wallToRepair) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(wallToRepair);
-                        creep.say("Repair wall");
                     }
                 }
             }
