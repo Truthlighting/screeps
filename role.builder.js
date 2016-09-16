@@ -5,14 +5,18 @@ var roleBuilder = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-
-        if (creep.memory.building && creep.carry.energy == 0) {
+        var activeSources = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
+        if (creep.memory.building && creep.carry.energy == 0 && activeSources) {
             creep.memory.building = false;
+            creep.memory.idling = false;
             creep.say('harvesting');
-        }
-        if (!creep.memory.building && creep.carry.energy == creep.carryCapacity || ((!creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE)) && creep.carry.energy > 0)) {
+        } else if (!creep.memory.building && creep.carry.energy == creep.carryCapacity || ((!activeSources) && creep.carry.energy > 0)) {
             creep.memory.building = true;
+            creep.memory.idling = false;
             creep.say('building');
+        } else {
+            creep.memory.idling = true;
+            creep.say('H-idling')
         }
 
         if (creep.memory.building) {
@@ -41,7 +45,7 @@ var roleBuilder = {
         }
 
 
-        else {
+        else if (!creep.memory.idling) {
             var target = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
             if (target) {
                 if(creep.harvest(target) == ERR_NOT_IN_RANGE) {
@@ -50,6 +54,10 @@ var roleBuilder = {
             } else {
                 //do something else
             }
+
+        } else {
+            var target = creep.pos.findClosestByPath([Game.flags.Flag1,Game.flags.Flag2]);
+            creep.moveTo(target);
         }
     }
 };
