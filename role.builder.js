@@ -42,7 +42,7 @@ var roleBuilder = {
                     }
                 })
                 //creep.say("wyd3");
-                if (creep.room.find(wallsToRepair).length != 0) {
+                if (wallsToRepair.length != 0) {
                     var wallToRepair = creep.pos.findClosestByPath(wallsToRepair);
                     if (creep.repair(wallToRepair) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(wallToRepair);
