@@ -7,7 +7,7 @@ var roleBuilder = {
     run: function(creep) {
         var activeSource = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
         //console.log(activeSource);
-        if (creep.memory.building && creep.carry.energy == 0 && activeSource !== null) {
+        if ((creep.memory.building && creep.carry.energy == 0 && activeSource !== null) || (creep.memory.idling && activeSource !== null)) {
             creep.memory.building = false;
             creep.memory.idling = false;
             creep.say('harvesting');
@@ -22,12 +22,12 @@ var roleBuilder = {
 
         if (creep.memory.building) {
             if (creep.room.find(FIND_CONSTRUCTION_SITES)) {
-                var target = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
-                if (creep.build(target) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(target);
+                var targetToBuild = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
+                if (creep.build(targetToBuild) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(targetToBuild);
                 }
             } else {
-                var repairThem = creep.room.find(FIND_STRUCTURES, {
+                var wallsToRepair = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                     return (structure.structureType == STRUCTURE_WALL &&
                     (structure.hits < 80000) &&
@@ -35,10 +35,10 @@ var roleBuilder = {
                     }
                 })
 
-                if (creep.room.find(repairThem)) {
-                    var target = creep.pos.findClosestByPath(repairThem);
-                    if (creep.build(target) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(target);
+                if (creep.room.find(wallsToRepair) !== []) {
+                    var wallToRepair = creep.pos.findClosestByPath(wallsToRepair);
+                    if (creep.repair(wallToRepair) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(wallToRepair);
                         creep.say("Repair wall")
                     }
                 }
@@ -47,18 +47,18 @@ var roleBuilder = {
 
 
         else if (!creep.memory.idling) {
-            var target = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
-            if (target) {
-                if(creep.harvest(target) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(target);
+            //var target = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
+            if (activeSource !== null) {
+                if(creep.harvest(activeSource) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(activeSource);
                 }
             } else {
                 //do something else
             }
 
         } else {
-            var target = creep.pos.findClosestByPath([Game.flags.Flag1,Game.flags.Flag2]);
-            creep.moveTo(target);
+            var targetFlag = creep.pos.findClosestByPath([Game.flags.Flag1,Game.flags.Flag2]);
+            creep.moveTo(targetFlag);
         }
     }
 };
