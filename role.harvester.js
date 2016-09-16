@@ -17,46 +17,47 @@ var roleHarvester = {
         if(!creep.memory.transporting) {
 
             //var sources = creep.room.find(FIND_SOURCES);
-            var target = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE); /*, {
+            var activeSource = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE); /*, {
                 filter: (source) => { source.energy > 0 }
             })*/
             //creep.say("H-"+target);
             //creep.say("H - " + target.energy);
-            if(creep.harvest(target) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(target);
+            if(creep.harvest(activeSource) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(activeSource);
                 //if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
                 //    creep.moveTo(sources[0]);
             }
 
         } else {
-            var targets = creep.room.find(FIND_STRUCTURES, {
+            var energyStorageStructures = creep.room.find(FIND_STRUCTURES, {
                         filter: (structure) => {
                             return (structure.structureType == STRUCTURE_EXTENSION ||
                             structure.structureType == STRUCTURE_CONTAINER ||
                             structure.structureType == STRUCTURE_SPAWN ||
-                            structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
+                            structure.structureType == STRUCTURE_TOWER) &&
+                            (structure.energy < structure.energyCapacity || _sum(structure.store) < structure.storeCapacity);
                         }
             })
 
-            if(targets.length > 0) {
-                var target = creep.pos.findClosestByPath(targets);
-                if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(target);
+            if(energyStorageStructures.length > 0) {
+                var energyStorageStructure = creep.pos.findClosestByPath(energyStorageStructures);
+                if(creep.transfer(energyStorageStructure, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(energyStorageStructure);
                 }
 
             } else {
-                var roadsToRepair = creep.room.find(FIND_STRUCTURES, {
+                var structuresToRepair = creep.room.find(FIND_STRUCTURES, {
                     filter: function(object){
                         return (object.structureType == STRUCTURE_ROAD ||
                         object.structureType == STRUCTURE_CONTAINER ) && (object.hits < object.hitsMax);
                     }
                 });
 
-                if (roadsToRepair){
+                if (structuresToRepair !== []){
                     //creep.say("Mvg to Rpr");
-                    var targetRoad = creep.pos.findClosestByPath(roadsToRepair);
-                    if (creep.repair(targetRoad) === ERR_NOT_IN_RANGE) {
-                        creep.moveTo(targetRoad);
+                    var structureToRepair = creep.pos.findClosestByPath(structuresToRepair);
+                    if (creep.repair(structureToRepair) === ERR_NOT_IN_RANGE) {
+                        creep.moveTo(structureToRepair);
                         creep.say("Mvg to Repair");
                     }
 
