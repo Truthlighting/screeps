@@ -21,19 +21,13 @@ var roleBuilder = {
         }
 
         if (creep.memory.building) {
-            //creep.say("wyd");
             var test = creep.room.find(FIND_CONSTRUCTION_SITES);
             if (test.length != 0) {
-                //creep.say("wyd");
                 var targetToBuild = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
-                //console.log("test " + test + " type of test: " + typeof(test)+ " test.length " + test.length + " targetToBuild " + targetToBuild);
-               //console.log(JSON.stringify(Game.rooms["W2N48"].find(FIND_CONSTRUCTION_SITES)));
                 if (creep.build(targetToBuild) == ERR_NOT_IN_RANGE) {
-                    creep.say("mvgtobld");
                     creep.moveTo(targetToBuild);
                 }
             } else {
-                creep.say("wyd2");
                 var wallsToRepair = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                     return (structure.structureType == STRUCTURE_WALL &&
@@ -41,7 +35,6 @@ var roleBuilder = {
                     (structure.hits > 0));
                     }
                 })
-                //creep.say("wyd3");
                 if (wallsToRepair.length != 0) {
                     var wallToRepair = creep.pos.findClosestByPath(wallsToRepair);
                     if (creep.repair(wallToRepair) == ERR_NOT_IN_RANGE) {
