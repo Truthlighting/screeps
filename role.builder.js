@@ -10,7 +10,7 @@ var roleBuilder = {
             creep.memory.building = false;
             creep.say('harvesting');
         }
-        if (!creep.memory.building && creep.carry.energy == creep.carryCapacity || ((creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE)) && creep.carry.energy > 0)) {
+        if (!creep.memory.building && creep.carry.energy == creep.carryCapacity || ((!creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE)) && creep.carry.energy > 0)) {
             creep.memory.building = true;
             creep.say('building');
         }
