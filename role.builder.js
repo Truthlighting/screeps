@@ -16,7 +16,7 @@ var roleBuilder = {
             creep.say('building');
         } else {
             creep.memory.idling = true;
-            creep.say('H-idling')
+            creep.say('B-idling')
         }
 
         if (creep.memory.building) {
