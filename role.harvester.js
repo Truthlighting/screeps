@@ -53,8 +53,7 @@ var roleHarvester = {
                     }
                 });
 
-                if (structuresToRepair !== []){
-                    //creep.say("Mvg to Rpr");
+                if (structuresToRepair.length > 0){
                     var structureToRepair = creep.pos.findClosestByPath(structuresToRepair);
                     if (creep.repair(structureToRepair) === ERR_NOT_IN_RANGE) {
                         creep.moveTo(structureToRepair);
