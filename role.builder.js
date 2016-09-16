@@ -25,6 +25,7 @@ var roleBuilder = {
             if (creep.room.find(FIND_CONSTRUCTION_SITES) !== []) {
                 creep.say("wyd");
                 var targetToBuild = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
+                console.log(targetToBuild);
                 if (creep.build(targetToBuild) == ERR_NOT_IN_RANGE) {
                     creep.say("mvgtobld");
                     creep.moveTo(targetToBuild);
