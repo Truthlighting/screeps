@@ -7,7 +7,7 @@ var roleBuilder = {
     run: function(creep) {
         var activeSource = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
         //console.log(activeSource);
-        if (creep.memory.building && creep.carry.energy == 0 && (activeSource !== null)) {
+        if (creep.memory.building && creep.carry.energy == 0 && activeSource !== null) {
             creep.memory.building = false;
             creep.memory.idling = false;
             creep.say('harvesting');
@@ -15,7 +15,7 @@ var roleBuilder = {
             creep.memory.building = true;
             creep.memory.idling = false;
             creep.say('building');
-        } else {
+        } else if (activeSource === null) {
             creep.memory.idling = true;
             creep.say('B-idling')
         }
