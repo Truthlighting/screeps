@@ -17,10 +17,11 @@ var roleBuilder = {
             creep.say('building');
         } else if (activeSource === null) {
             creep.memory.idling = true;
-            creep.say('B-idling')
+            creep.say('B-idling');
         }
 
         if (creep.memory.building) {
+            creep.say("wyd");
             if (creep.room.find(FIND_CONSTRUCTION_SITES) !== []) {
                 var targetToBuild = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
                 if (creep.build(targetToBuild) == ERR_NOT_IN_RANGE) {
@@ -35,12 +36,12 @@ var roleBuilder = {
                     (structure.hits > 0));
                     }
                 })
-                creep.say("wyd")
+                creep.say("wyd2");
                 if (creep.room.find(wallsToRepair) !== []) {
                     var wallToRepair = creep.pos.findClosestByPath(wallsToRepair);
                     if (creep.repair(wallToRepair) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(wallToRepair);
-                        creep.say("Repair wall")
+                        creep.say("Repair wall");
                     }
                 }
             }
