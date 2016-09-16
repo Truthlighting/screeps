@@ -20,7 +20,7 @@ var roleHarvester = {
             var target = creep.pos.findClosestByPath(FIND_SOURCES, {
                 filter: (source) => { source.energy > 0 }
             })
-            creep.say("H - " + target.energy);
+            //creep.say("H - " + target.energy);
             if(creep.harvest(target) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(target);
                 //if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
