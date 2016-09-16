@@ -23,6 +23,7 @@ var roleBuilder = {
         if (creep.memory.building) {
             //creep.say("wyd");
             if (creep.room.find(FIND_CONSTRUCTION_SITES) !== []) {
+                creep.say("wyd");
                 var targetToBuild = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
                 if (creep.build(targetToBuild) == ERR_NOT_IN_RANGE) {
                     creep.say("mvgtobld");
