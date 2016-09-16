@@ -21,8 +21,8 @@ var roleBuilder = {
         }
 
         if (creep.memory.building) {
-            var test = creep.room.find(FIND_CONSTRUCTION_SITES);
-            if (test.length != 0) {
+            var buildSites = creep.room.find(FIND_CONSTRUCTION_SITES);
+            if (buildSites.length != 0) {
                 var targetToBuild = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
                 if (creep.build(targetToBuild) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targetToBuild);
@@ -31,7 +31,7 @@ var roleBuilder = {
                 var wallsToRepair = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                     return (structure.structureType == STRUCTURE_WALL &&
-                    (structure.hits < 80000) &&
+                    (structure.hits < 200000) &&
                     (structure.hits > 0));
                     }
                 })
