@@ -6,7 +6,7 @@ var roleBuilder = {
     /** @param {Creep} creep **/
     run: function(creep) {
         var activeSource = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
-        if (creep.memory.building && creep.carry.energy == 0 && (activeSource === null)) {
+        if (creep.memory.building && creep.carry.energy == 0 && (activeSource !== null)) {
             creep.memory.building = false;
             creep.memory.idling = false;
             creep.say('harvesting');
