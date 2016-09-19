@@ -4,6 +4,8 @@
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
+var roleTower = require('role.tower');
+
 if (!Memory.hCreepID) {
     Memory.hCreepID = 1;
 }
@@ -62,5 +64,5 @@ module.exports.loop = function () {
             roleBuilder.run(creep);
         }
     }
-
+    roleTower.run();
 };
