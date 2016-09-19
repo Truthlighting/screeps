@@ -31,7 +31,7 @@ var roleBuilder = {
                 var wallsToRepair = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                     return (structure.structureType == STRUCTURE_WALL &&
-                    (structure.hits < 200000) &&
+                    (structure.hits < 400000) &&
                     (structure.hits > 0));
                     }
                 })
