@@ -4,9 +4,23 @@
 var roleHauler = {
 
     /** @param {Creep} creep **/
-    run: function(creep) {
 
-        if(creep.memory.building && creep.carry.energy == 0) {
-            creep.memory.building = false;
-            creep.say('harvesting');
+    run: function(creep) {
+        var notFullnotEmptyContainers = creep.room.find(FIND_STRUCTURES, {
+            filter: (structure) => {
+                    return (structure.structureType == STRUCTURE_CONTAINER) &&
+                    _.sum(structure.store) < structure.storeCapacity;
+            }
+        })
+
+        var notFullnotEmptyStorage = creep.room.find(FIND_STRUCTURES, {
+            filter: (structure) => {
+                    return (structure.structureType == STRUCTURE_STORAGE) &&
+                    (_.sum(structure.store) < structure.storeCapacity &&
+                    _.sum(structure.store > 0));
+            }
+        })
+
+        if
+    };
 module.exports = roleHauler;
