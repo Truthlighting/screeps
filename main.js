@@ -40,8 +40,8 @@ module.exports.loop = function () {
     }
     //console.log("source: " + source);
 //WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE
-    if(harvesters.length < 2 && Game.spawns['Harmony'].canCreateCreep([WORK,WORK,WORK,WORK,CARRY,MOVE], "H-" + Memory.hCreepID)==OK) {
-        var newName = Game.spawns['Harmony'].createCreep([WORK,WORK,WORK,WORK,CARRY,MOVE], "H-" + Memory.hCreepID, {role: 'harvester', assignedSource: source});
+    if(harvesters.length < 2 && Game.spawns['Harmony'].canCreateCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE], "H-" + Memory.hCreepID)==OK) {
+        var newName = Game.spawns['Harmony'].createCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE], "H-" + Memory.hCreepID, {role: 'harvester', assignedSource: source});
         Memory.hCreepID++;
         console.log('Spawning new harvester: ' + newName);
     }
