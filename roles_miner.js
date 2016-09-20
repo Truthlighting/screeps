@@ -9,6 +9,9 @@
  */
 var miner = {
     parts: [
+        [MOVE, WORK],
+        [MOVE, WORK, WORK],
+        [MOVE, WORK, WORK, WORK],
         [MOVE, WORK, WORK, WORK, WORK],
         [MOVE, WORK, WORK, WORK, WORK, WORK]
     ],
