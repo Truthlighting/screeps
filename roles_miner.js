@@ -9,8 +9,8 @@
  */
 var miner = {
     parts: [
-        [Game.MOVE, Game.WORK, Game.WORK, Game.WORK, Game.WORK],
-        [Game.MOVE, Game.WORK, Game.WORK, Game.WORK, Game.WORK, Game.WORK]
+        [MOVE, WORK, WORK, WORK, WORK],
+        [MOVE, WORK, WORK, WORK, WORK, WORK]
     ],
 
     getOpenSource: function()
