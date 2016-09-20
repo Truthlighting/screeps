@@ -76,7 +76,7 @@ module.exports =
         {
             return;
         }
-        console.log(spawnPoint);
+
         if(memory == undefined)
             memory = { };
 
@@ -93,7 +93,7 @@ module.exports =
         }
 
         console.log('Spawning ' + role);
-        spawnPoint.createCreep(manager.getRoleBodyParts(role), name, memory);
+        console.log(spawnPoint.createCreep(manager.getRoleBodyParts(role), name, memory));
     },
 
     canSpawn: function(spawnPoint, role)
