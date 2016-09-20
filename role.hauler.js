@@ -7,16 +7,6 @@ var roleHauler = {
 
     run: function(creep) {
 
-        var notEmptyContainers = creep.room.find(FIND_STRUCTURES, {
-                    filter: (structure) =>  structure.structureType == STRUCTURE_CONTAINER &&
-                                            structure.store[RESOURCE_ENERGY] > 0
-
-        })
-        var notFullStoragePlaces = creep.room.find(FIND_STRUCTURES, {
-                    filter: (structure) => structure.structureType == STRUCTURE_STORAGE &&
-                                           _.sum(structure.store) < structure.storeCapacity
-
-        })
         var energyStorageStructures = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_EXTENSION ||
@@ -24,6 +14,26 @@ var roleHauler = {
                         (structure.energy < structure.energyCapacity);
                     }
         })
+        if (energyStorageStructures.length == 0) {
+            var notEmptyContainers = creep.room.find(FIND_STRUCTURES, {
+                    filter: (structure) => structure.structureType == STRUCTURE_CONTAINER &&
+                    structure.store[RESOURCE_ENERGY] > 0
+            })
+        } else {
+            var notEmptyContainers = creep.room.find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_CONTAINER ||
+                                structure.structureType == STRUCTURE_STORAGE) &&
+                                structure.store[RESOURCE_ENERGY] > 0
+                    }
+            })
+        }
+        var notFullStoragePlaces = creep.room.find(FIND_STRUCTURES, {
+                    filter: (structure) => structure.structureType == STRUCTURE_STORAGE &&
+                                           _.sum(structure.store) < structure.storeCapacity
+
+        })
+
 
         if(creep.memory.transporting && creep.carry.energy == 0) {
             creep.memory.transporting = false;
