@@ -172,7 +172,7 @@ module.exports =
             }
         }
         console.log("body: " + body);
-        console.log("total cost for " + role + ": " + total);
+        console.log("total cost: " + total);
         return total;
     },
 
