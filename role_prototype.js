@@ -50,7 +50,7 @@ var proto = {
     getParts: function() {
         //var _ = require('lodash');
 
-        var extensions = Game.getRoom('1-1').find(Game.MY_STRUCTURES, {
+        var extensions = Game.rooms['W2N48'].find(FIND_MY_STRUCTURES, {
             filter: function(structure)
             {
                 return (structure.structureType == Game.STRUCTURE_EXTENSION && structure.energy >= 200);
