@@ -23,6 +23,7 @@ module.exports = {
 
         var roleObject = require("roles_" + role);
         roleObject = require('extend')(roleObject, proto);
+        console.log(roleObject);
         return roleObject;
     },
 
