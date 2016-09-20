@@ -63,7 +63,7 @@ module.exports =
     spawn: function(role, memory, spawnPoint)
     {
         if(!spawnPoint)
-            spawnPoint = Game.spawns.Spawn1;
+            spawnPoint = Game.spawns['Harmony'];
 
         var manager = require('roleManager');
 
