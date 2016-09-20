@@ -50,10 +50,9 @@ module.exports =
         {
             return me.canSpawn(spawn, role.type);
         });
-        console.log("getting here");
         if(! toSpawnAt.length)
             return;
-
+        console.log("getting here");
         toSpawnAt = toSpawnAt[0];
         this.spawn(role.type, role.memory, toSpawnAt);
 
