@@ -61,6 +61,7 @@ var proto = {
 
         var parts = _.cloneDeep(this.parts);
         //console.log("parts: " + parts);
+        console.log(typeof parts[0] != "object");
         if(typeof parts[0] != "object")
             return this.parts;
 
