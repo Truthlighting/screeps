@@ -6,6 +6,8 @@ var roleBuilder = {
     /** @param {Creep} creep **/
     run: function(creep) {
         var activeSource = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
+
+
         //console.log(activeSource);
         if ((creep.memory.building && creep.carry.energy == 0 && activeSource !== null) || (creep.memory.idling && activeSource !== null)) {
             creep.memory.building = false;
@@ -47,10 +49,21 @@ var roleBuilder = {
 
         else if (!creep.memory.idling) {
             //var target = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
-            if (activeSource !== null) {
-                if(creep.harvest(activeSource) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(activeSource);
+            var energyStorageStructures = creep.room.find(FIND_STRUCTURES, {
+                        filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_CONTAINER ||
+                            structure.structureType == STRUCTURE_STORAGE) &&
+                            (structure.store[RESOURCE_ENERGY] > 0)
+                        }
+            })
+
+
+            if(energyStorageStructures.length > 0) {
+                var energyStorageStructure = creep.pos.findClosestByPath(energyStorageStructures);
+                if(creep.withdraw(energyStorageStructure, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(energyStorageStructure);
                 }
+
             } else {
                 //do something else
             }
