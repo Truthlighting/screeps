@@ -29,7 +29,7 @@ var roleHauler = {
             creep.memory.transporting = true;
             creep.memory.idling = false;
             creep.say("C-Xporting");
-        } else {
+        } else if (notEmptyContainers.length = 0) {
             creep.memory.transporting = false;
             creep.memory.idling = true;
             creep.say("C-Idling")
