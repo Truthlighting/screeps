@@ -30,10 +30,9 @@ var roleHarvester = {
                 var assignedSource = Game.getObjectById(creep.memory.assignedSource.id);
                 //creep.say("H-"+target);
                 //creep.say("H - " + target.energy);
-                console.log(assignedSource);
+                //console.log(assignedSource);
                 if (creep.harvest(assignedSource) == ERR_NOT_IN_RANGE) {
-                    creep.say(creep.moveTo(assignedSource));
-
+                    creep.moveTo(assignedSource);
                 }
             }
 
