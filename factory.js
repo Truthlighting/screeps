@@ -35,7 +35,7 @@ module.exports ={
                 //'archer', //2
                 //'healer', //1
                 //'archer', //3
-                'miner', //3
+               // 'miner', //3
                 'builder', //1
                 'transporter',//1
                 'transporter',//2
@@ -43,12 +43,12 @@ module.exports ={
                // 'healer', //2
                // 'archer', //5
                 //'archer', //6
-                'miner', //4
+               // 'miner', //4
                //'archer', //7
                // 'archer', //8
                 //'archer', //9
                // 'healer', //3
-                'miner', //5
+               // 'miner', //5
                 'builder',//1
                 //'transporter',//3
                 //'transporter',//4
