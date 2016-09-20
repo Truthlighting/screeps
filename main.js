@@ -35,8 +35,8 @@ module.exports.loop = function () {
     var harvesterSources = _.map(harvesters, 'memory.assignedSource.id');
     console.log("hs: " + harvesterSources + " s: " + sources);
     var source;
-    for (var i=0, l=harvesterSources.length; i < l; i++) {
-        if (sources.id.indexOf(harvesterSources[i]) == -1) { source = harvesterSources[i]; break; }
+    for (var i=0, l=sources.length; i < l; i++) {
+        if (harvesterSources.indexOf(sources[i].id) == -1) { source = sources[i]; break; }
     }
     console.log("source: " + source);
     //console.log(result);
