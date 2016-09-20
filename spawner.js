@@ -32,6 +32,7 @@ module.exports =
                 return spawn.spawning === undefined || spawn.spawning === null;
             }
         });
+        console.log(spawns);
 
         if(!spawns.length)
             return;
