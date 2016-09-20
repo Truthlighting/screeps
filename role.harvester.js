@@ -27,7 +27,7 @@ var roleHarvester = {
                  filter: (source) => { source.energy > 0 }
                  })*/
             } else {
-                var assignedSource = creep.memory.assignedSource.id;
+                var assignedSource = Game.getObjectById(creep.memory.assignedSource.id);
                 //creep.say("H-"+target);
                 //creep.say("H - " + target.energy);
                 console.log(assignedSource);
