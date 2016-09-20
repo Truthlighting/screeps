@@ -36,7 +36,7 @@ module.exports.loop = function () {
     console.log("hs: " + harvesterSources + "s: " + sources);
     var source;
     for (var i=0, l=harvesterSources.length; i < l; i++) {
-        if (aources.indexOf(harvesterSources[i]) == -1) { source = harvesterSources[i]; break; }
+        if (sources.indexOf(harvesterSources[i]) == -1) { source = harvesterSources[i]; break; }
     }
     console.log("source: " + source);
     //console.log(result);
