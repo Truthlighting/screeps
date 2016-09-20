@@ -5,6 +5,7 @@ var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var roleTower = require('role.tower');
+var roleHauler = require('role.hauler');
 
 if (!Memory.hCreepID) {
     Memory.hCreepID = 1;
@@ -40,10 +41,10 @@ module.exports.loop = function () {
     var haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
 
     if(haulers.length < 1 && Game.spawns['Harmony'].canCreateCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], "C-" + Memory.cCreepID)==OK) {
-        var newName = Game.spawns['Harmony'].createCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], "C-" + Memory.cCreepID, {role: 'hauler'});
+        var newName = Game.spawns['Harmony'].createCreep([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], "C-" + Memory.cCreepID, {role: 'hauler'});
         Memory.cCreepID++;
         console.log('Spawning new hauler: ' + newName);
-
+    }
 
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
 //    console.log('Upgraders: ' + harvesters.length);
@@ -75,6 +76,10 @@ module.exports.loop = function () {
         if(creep.memory.role == 'builder') {
             roleBuilder.run(creep);
         }
+        if(creep.memory.role == 'hauler') {
+            roleHauler.run(creep);
+        }
+    }
     }
     roleTower.run();
 };
