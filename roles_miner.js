@@ -58,7 +58,7 @@ var miner = {
                 miner: creep.id
             }});
 
-        creep.memory.helpersNeeded = creepsNeeded;
+        console.log(creep.memory.helpersNeeded = creepsNeeded);
     },
 
     onSpawn: function()
