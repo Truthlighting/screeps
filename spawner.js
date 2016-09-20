@@ -54,7 +54,7 @@ module.exports =
             return;
 
         toSpawnAt = toSpawnAt[0];
-
+        console.log("getting here");
         this.spawn(role.type, role.memory, toSpawnAt);
 
         Memory.spawnQue.shift();
