@@ -53,12 +53,13 @@ var proto = {
         var extensions = Game.rooms['W2N48'].find(FIND_MY_STRUCTURES, {
             filter: function(structure)
             {
-                return (structure.structureType == STRUCTURE_EXTENSION && structure.energy >= 200);
+                return (structure.structureType == STRUCTURE_EXTENSION && structure.energy >= 50);
             }
         }).length;
-        console.log(extensions);
+        console.log("extensions: " + extensions);
 
         var parts = _.cloneDeep(this.parts);
+        console.log("parts: " + parts);
         if(typeof parts[0] != "object")
             return this.parts;
 
