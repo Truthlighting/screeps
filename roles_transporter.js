@@ -14,7 +14,7 @@ var transporter = {
 
         if(creep.energy == 0)
         {
-            var closestSpawn = creep.pos.findNearest(Game.MY_SPAWNS, {
+            var closestSpawn = creep.pos.findClosestByPath(FIND_MY_SPAWNS, {
                 filter: function(spawn)
                 {
                     return spawn.energy > 0;
@@ -31,7 +31,7 @@ var transporter = {
 
         //Transfer to builder
         if (!target) {
-            var builderToHelp = creep.pos.findNearest(Game.MY_CREEPS, {
+            var builderToHelp = creep.pos.findClosestByPath(FIND_MY_CREEPS, {
                 filter: function (builder) {
                     return builder.memory.role == "builder"
                         && builder.energy < ( builder.energyCapacity - 10);
@@ -44,10 +44,10 @@ var transporter = {
 
         if(!target)
         {
-            var extension = creep.pos.findNearest(Game.MY_STRUCTURES, {
+            var extension = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
                 filter: function(structure)
                 {
-                    return structure.structureType == Game.STRUCTURE_EXTENSION &&
+                    return structure.structureType == STRUCTURE_EXTENSION &&
                         structure.energy < structure.energyCapacity;
                 }
             });
@@ -59,7 +59,7 @@ var transporter = {
         //Go to target and give it energy
         if (creep.pos.isNearTo(target)) {
             if (target.energy < target.energyCapacity) {
-                creep.transferEnergy(target);
+                creep.transfer(target,RESOURCE_ENERGY);
             }
         }
         else {
