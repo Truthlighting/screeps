@@ -49,6 +49,7 @@ module.exports =
         //console.log(spawns);
         var toSpawnAt = spawns.filter(function(spawn)
         {
+            console.log("spawn: " + spawn + " role.type: " + role.type);
             console.log(me.canSpawn(spawn, role.type));
             return me.canSpawn(spawn, role.type);
         });
