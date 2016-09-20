@@ -38,8 +38,7 @@ module.exports.loop = function () {
     for (var i=0, l=sources.length; i < l; i++) {
         if (harvesterSources.indexOf(sources[i].id) == -1) { source = sources[i]; break; }
     }
-    console.log("source: " + source);
-    //console.log(result);
+    //console.log("source: " + source);
 //WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE
     if(harvesters.length < 2 && Game.spawns['Harmony'].canCreateCreep([WORK,WORK,WORK,WORK,CARRY,MOVE], "H-" + Memory.hCreepID)==OK) {
         var newName = Game.spawns['Harmony'].createCreep([WORK,WORK,WORK,WORK,CARRY,MOVE], "H-" + Memory.hCreepID, {role: 'harvester', assignedSource: source});
