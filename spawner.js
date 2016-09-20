@@ -120,39 +120,39 @@ module.exports =
             var part = parts[index];
             switch(part)
             {
-                case Game.MOVE:
+                case MOVE:
                     total += 50
                     break;
 
-                case Game.WORK:
+                case WORK:
                     total += 100
                     break;
 
-                case Game.CARRY:
+                case CARRY:
                     total += 50
                     break;
 
-                case Game.ATTACK:
+                case ATTACK:
                     total += 80
                     break;
 
-                case Game.RANGED_ATTACK:
+                case RANGED_ATTACK:
                     total += 150
                     break;
 
-                case Game.HEAL:
+                case HEAL:
                     total += 250
                     break;
 
-                case Game.TOUGH:
+                case TOUGH:
                     total += 10
                     break;
 
-                case Game.CLAIM:
+                case CLAIM:
                     total += 600
             }
         }
-        //console.log(total);
+        console.log("total cost: " + total);
         return total;
     },
 
