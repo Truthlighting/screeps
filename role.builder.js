@@ -15,6 +15,7 @@ var roleBuilder = {
             })
 
         //console.log(activeSource);
+        console.log(energyStorageStructures.length);
         if ((creep.memory.building && creep.carry.energy == 0 && energyStorageStructures.length > 0) || (creep.memory.idling && energyStorageStructures.length > 0)) {
             creep.memory.building = false;
             creep.memory.idling = false;
