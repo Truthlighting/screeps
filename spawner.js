@@ -103,7 +103,7 @@ module.exports =
             role = spawnPoint;
             spawnPoint = Game.spawns['Harmony'];
         }
-        console.log(role);
+        //console.log(role);
         return spawnPoint.energy >= this.spawnCost(role)
             && (spawnPoint.spawning == null
             || spawnPoint.spawning == undefined);
@@ -152,7 +152,7 @@ module.exports =
                     total += 600
             }
         }
-
+        console.log(total);
         return total;
     },
 
