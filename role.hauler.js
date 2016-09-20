@@ -46,7 +46,7 @@ var roleHauler = {
             creep.memory.transporting = false;
             creep.memory.idling = false;
             creep.say("C-Travelling");
-        } else if (!creep.memory.transporting && creep.carry.energy == creep.carryCapacity || ((!creep.pos.findClosestByPath(notFullStoragePlaces)) && creep.carry.energy > 0)) {
+        } else if (!creep.memory.transporting && creep.carry.energy == creep.carryCapacity || ((creep.pos.findClosestByPath(notFullStoragePlaces)) && creep.carry.energy > 0)) {
             creep.memory.transporting = true;
             creep.memory.idling = false;
             creep.say("C-Xporting");
