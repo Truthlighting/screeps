@@ -63,6 +63,7 @@ var miner = {
 
     onSpawn: function()
     {
+        console.log("herehere");
         var creep = this.creep;
 
         creep.memory.isNearSource = false;
