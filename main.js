@@ -32,11 +32,11 @@ module.exports.loop = function () {
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
 //    console.log('Harvesters: ' + harvesters.length);
     var sources = Game.rooms['W2N48'].find(FIND_SOURCES);
-    var harvesterSources = _.map(harvesters, 'memory.assignedSource');
+    var harvesterSources = _.map(harvesters, 'memory.assignedSource.id');
     console.log("hs: " + harvesterSources + " s: " + sources);
     var source;
     for (var i=0, l=harvesterSources.length; i < l; i++) {
-        if (sources.indexOf(harvesterSources[i]) == -1) { source = harvesterSources[i]; break; }
+        if (sources.id.indexOf(harvesterSources[i]) == -1) { source = harvesterSources[i]; break; }
     }
     console.log("source: " + source);
     //console.log(result);
