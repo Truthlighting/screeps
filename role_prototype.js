@@ -67,15 +67,15 @@ var proto = {
             return this.parts;
 
         parts.reverse();
-
-        for(var i in parts)
+        return parts;
+        /*for(var i in parts)
         {
             //console.log("i:" + i + " parts[i]: " + parts[i]);
             //console.log("parts[i].length (" + parts[i].length + ") - 5 (" + (parts[i].length - 5) + ") <= extentions (" + extensions + ")");
             if((parts[i].length - 5) <= extensions) {
                 return parts[i];
             }
-        }
+        }*/
     },
 
     action: function() { },
