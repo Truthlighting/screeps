@@ -76,7 +76,7 @@ module.exports =
         {
             return;
         }
-
+        console.log(spawnPoint);
         if(memory == undefined)
             memory = { };
 
