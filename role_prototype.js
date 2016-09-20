@@ -56,7 +56,7 @@ var proto = {
                 return (structure.structureType == STRUCTURE_EXTENSION && structure.energy >= 50);
             }
         }).length;
-        console.log("extensions: " + extensions);
+        //console.log("extensions: " + extensions);
 
         var parts = _.cloneDeep(this.parts);
         //console.log("parts: " + parts);
