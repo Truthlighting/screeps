@@ -58,8 +58,8 @@ var proto = {
             }
         }).length;
         //console.log("extensions: " + extensions);
-
         var parts = _.cloneDeep(this.parts);
+        console.log("this.parts: " + this.parts + " parts: " + parts);
         //console.log("parts: " + parts);
         console.log(typeof parts[0] != "object");
         if(typeof parts[0] != "object")
