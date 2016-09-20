@@ -108,21 +108,36 @@ module.exports =
         }
         //console.log(role);
         console.log("spawnPoint: " + spawnPoint + " spawnPoint.energy: " + spawnPoint.energy + " this.room.energyAvailable: " + spawnPoint.room.energyAvailable);
-        return spawnPoint.energy >= this.spawnCost(role)
+        //return spawnPoint.energy >= this.spawnCost(role)
+        return this.findMostExpensiveAffordableBody(role)
             && (spawnPoint.spawning == null
             || spawnPoint.spawning == undefined);
     },
 
-    spawnCost: function(role)
+    findMostExpensiveAffordableBody: function(role)
     {
         var manager = require('roleManager');
-        var parts = manager.getRoleBodyParts(role);
+        var bodyArray = manager.getRoleBodyParts(role);
+
+        for (var index in bodyArray)
+        {
+            var body = bodyArray[index];
+            if (spawnCost(body) < spawnPoint.room.energyAvailable)
+                return body;
+        }
+
+    },
+
+    spawnCost: function(body)
+    {
+       // var manager = require('roleManager');
+       // var parts = manager.getRoleBodyParts(role);
 
         var total = 0;
-        for(var index in parts)
+        for(var index in body)
         {
-            var part = parts[index];
-            switch(part)
+            var bodyPart = body[index];
+            switch(bodyPart)
             {
                 case MOVE:
                     total += 50
@@ -156,7 +171,7 @@ module.exports =
                     total += 600
             }
         }
-        console.log("parts: " + parts);
+        console.log("body: " + body);
         console.log("total cost for " + role + ": " + total);
         return total;
     },
