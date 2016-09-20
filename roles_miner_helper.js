@@ -10,14 +10,14 @@
 
 var helper = {
     parts: [
-        [Game.MOVE, Game.CARRY, Game.MOVE, Game.CARRY],
-        [Game.MOVE, Game.CARRY, Game.MOVE, Game.CARRY, Game.MOVE, Game.CARRY]
+        [MOVE, CARRY, MOVE, CARRY],
+        [MOVE, CARRY, MOVE, CARRY, MOVE, CARRY]
     ],
 
     assignMiner: function () {
         var creep = this.creep;
 
-        var miner = creep.pos.findNearest(Game.MY_CREEPS, {
+        var miner = creep.pos.findClosestByPath(FIND_MY_CREEPS, {
             filter: function (miner) {
                 if (miner.memory.role == 'miner' && miner.memory.helpers.length < miner.memory.helpersNeeded)
                     return true;
@@ -60,7 +60,7 @@ var helper = {
         //If we can still pick up energy, let's do that
         if (creep.energy < creep.energyCapacity) {
             if (creep.pos.isNearTo(miner)) {
-                var energy = creep.pos.findInRange(Game.DROPPED_ENERGY, 1)[0];
+                var energy = creep.pos.findInRange(FIND_DROPPED_ENERGY, 1)[0];
                 creep.pickup(energy);
             }
             else {
@@ -76,7 +76,7 @@ var helper = {
         //Okay, everything below is for dropping energy off
 
         if (!target) {
-            var spawn = creep.pos.findNearest(Game.MY_SPAWNS);
+            var spawn = creep.pos.findClosestByPath(FIND_MY_SPAWNS);
 
             //If we found it, set it as our target
             if (spawn)
@@ -101,7 +101,7 @@ var helper = {
         if (rightDir > 8)
             rightDir -= 8;
 
-        var courier = creep.pos.findNearest(Game.MY_CREEPS, {
+        var courier = creep.pos.findClosestByPath(FIND_MY_CREEPS, {
             filter: function (possibleTarget) {
                 return (
                     possibleTarget.memory.role == creep.memory.role
@@ -126,10 +126,10 @@ var helper = {
         //If we're near to the target, either give it our energy or drop it
         if (creep.pos.isNearTo(target)) {
             if (target.energy < target.energyCapacity) {
-                creep.transferEnergy(target);
+                creep.transfer(target, RESOURCE_ENERGY);
             }
             else
-                creep.dropEnergy();
+                creep.drop(RESOURCE_ENERGY);
         }
         //Let's do the moving
         else {
