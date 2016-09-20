@@ -28,7 +28,7 @@ var proto = {
             this.onSpawn();
             console.log(this.creep.memory.onSpawned = true);
         }
-
+        console.log("gets here");
         this.action(this.creep);
 
         if(this.creep.ticksToLive == 1)
