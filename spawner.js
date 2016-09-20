@@ -152,7 +152,7 @@ module.exports =
                     total += 600
             }
         }
-        console.log(total);
+        //console.log(total);
         return total;
     },
 
