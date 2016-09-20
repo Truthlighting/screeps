@@ -14,10 +14,9 @@ var roleHauler = {
         })
         console.log(notEmptyContainers.length);
         var notFullStoragePlaces = creep.room.find(FIND_STRUCTURES, {
-                    filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_STORAGE) &&
-                        (_.sum(structure.store) < structure.storeCapacity)
-                    }
+                    filter: (structure) => structure.structureType == STRUCTURE_STORAGE &&
+                                           _.sum(structure.store) < structure.storeCapacity
+
         })
 
         if(creep.memory.transporting && creep.carry.energy == 0) {
