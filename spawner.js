@@ -75,7 +75,7 @@ module.exports =
         {
             return;
         }
-
+        console.log("getting here");
         /*if(!this.canSpawn(spawnPoint, role))
         {
             return;
