@@ -122,7 +122,7 @@ module.exports =
         for (var index in bodyArray)
         {
             var body = bodyArray[index];
-            if (spawnCost(body) < spawnPoint.room.energyAvailable)
+            if (this.spawnCost(body) < spawnPoint.room.energyAvailable)
                 return body;
         }
 
