@@ -46,14 +46,16 @@ module.exports =
         }
 
         var me = this;
+        //console.log(spawns);
         var toSpawnAt = spawns.filter(function(spawn)
         {
+            console.log(me.canSpawn(spawn, role.type));
             return me.canSpawn(spawn, role.type);
         });
-        console.log(toSpawnAt.length);
+        //console.log(toSpawnAt.length);
         if(!toSpawnAt.length)
             return;
-        console.log("getting here1");
+        //console.log("getting here1");
         toSpawnAt = toSpawnAt[0];
         this.spawn(role.type, role.memory, toSpawnAt);
 
