@@ -52,7 +52,7 @@ var miner = {
 
         if(creepsNeeded > 5)
             creepsNeeded = 5;
-
+        console.log("gets here");
         for(var i = 0; i < creepsNeeded; i++)
             Memory.spawnQue.unshift({ type: 'miner_helper', memory: {
                 miner: creep.id
