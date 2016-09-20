@@ -34,6 +34,7 @@ module.exports = {
         var role = this.getRole(role);
 
         if(role.getParts !== undefined)
+            console.log("role.getParts.call(role): " + role.getParts.call(role));
             return role.getParts.call(role);
         else
             return role.prototype.getParts.call(role);
