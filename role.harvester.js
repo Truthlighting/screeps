@@ -17,15 +17,22 @@ var roleHarvester = {
         if(!creep.memory.transporting) {
 
             //var sources = creep.room.find(FIND_SOURCES);
-            var activeSource = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE); /*, {
-                filter: (source) => { source.energy > 0 }
-            })*/
-            //creep.say("H-"+target);
-            //creep.say("H - " + target.energy);
-            if(creep.harvest(activeSource) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(activeSource);
-                //if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                //    creep.moveTo(sources[0]);
+            if (!creep.memory.assignedSource) {
+                var activeSource = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
+                if (creep.harvest(activeSource) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(activeSource);
+                }
+                /*, {
+                 } else {
+                 filter: (source) => { source.energy > 0 }
+                 })*/
+            } else {
+                var assignedSource = creep.memory.assignedSource;
+                //creep.say("H-"+target);
+                //creep.say("H - " + target.energy);
+                if (creep.harvest(assignedSource) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(assignedSource);
+                }
             }
 
         } else {
