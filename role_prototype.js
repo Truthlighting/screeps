@@ -59,7 +59,7 @@ var proto = {
         }).length;
         //console.log("extensions: " + extensions);
         var parts = _.cloneDeep(this.parts);
-        console.log("type of this.parts: " + typeof(this.parts));
+        console.log("type of this.parts: " + typeof(this.parts[0]));
         console.log("this.parts: " + this.parts + " parts: " + parts);
         //console.log("parts: " + parts);
         console.log(typeof parts[0] != "object");
@@ -70,8 +70,8 @@ var proto = {
 
         for(var i in parts)
         {
-            console.log("i:" + i + " parts[i]: " + parts[i]);
-            console.log("parts[i].length (" + parts[i].length + ") - 5 (" + (parts[i].length - 5) + ") <= extentions (" + extensions + ")");
+            //console.log("i:" + i + " parts[i]: " + parts[i]);
+            //console.log("parts[i].length (" + parts[i].length + ") - 5 (" + (parts[i].length - 5) + ") <= extentions (" + extensions + ")");
             if((parts[i].length - 5) <= extensions) {
                 return parts[i];
             }
