@@ -70,6 +70,7 @@ var roleBuilder = {
             }
 
         } else {
+            creep.say("movingtoflg")
             var targetFlag = creep.pos.findClosestByPath([Game.flags.Flag1,Game.flags.Flag2]);
             creep.moveTo(targetFlag);
         }
