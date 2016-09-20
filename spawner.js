@@ -21,6 +21,7 @@ module.exports =
 
     spawnNextInQue: function()
     {
+        console.log("getting here");
         this.initSpawnQue();
 
         if(!Memory.spawnQue.length)
@@ -54,7 +55,6 @@ module.exports =
             return;
 
         toSpawnAt = toSpawnAt[0];
-        console.log("getting here");
         this.spawn(role.type, role.memory, toSpawnAt);
 
         Memory.spawnQue.shift();
