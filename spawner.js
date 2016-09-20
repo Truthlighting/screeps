@@ -53,7 +53,7 @@ module.exports =
             //console.log(me.canSpawn(spawn, role.type));
             return me.canSpawn(spawn, role.type);
         });
-        //console.log(toSpawnAt.length);
+        console.log("toSpawnAt.length:" + toSpawnAt.length);
         if(!toSpawnAt.length)
             return;
         //console.log("getting here1");
