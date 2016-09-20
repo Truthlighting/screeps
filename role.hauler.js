@@ -76,7 +76,7 @@ var roleHauler = {
         } else if (!creep.memory.idling) {
             if(notEmptyContainers.length > 0) {
                 var notEmptyContainer = _.head(_.sortBy(notEmptyContainers, ('energy')));
-                console.log(notEmptyContainer);
+                //console.log(notEmptyContainer);
                 //var notEmptyContainer = creep.pos.findClosestByPath(notEmptyContainers);
                 if (creep.withdraw(notEmptyContainer, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(notEmptyContainer);
