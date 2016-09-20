@@ -37,7 +37,7 @@ module.exports =
 
         if(!spawns.length)
             return;
-        console.log("getting here1");
+
         var role = Memory.spawnQue[0];
 
         if(typeof role == "string")
@@ -50,7 +50,7 @@ module.exports =
         {
             return me.canSpawn(spawn, role.type);
         });
-
+        console.log("getting here");
         if(! toSpawnAt.length)
             return;
 
