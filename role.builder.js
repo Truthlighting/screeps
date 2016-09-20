@@ -23,7 +23,7 @@ var roleBuilder = {
             creep.memory.building = true;
             creep.memory.idling = false;
             creep.say('building');
-        } else if (activeSource === null) {
+        } else if (energyStorageStructures.length == 0) {
             creep.memory.idling = true;
             creep.say('B-idling');
         }
