@@ -69,8 +69,8 @@ var proto = {
 
         for(var i in parts)
         {
-            console.log(i);
-            console.log("parts[i].length (" + parts[i].length + ") - 5 (" + parts[i].length - 5 + ") <= extentions (" + extensions + ")");
+            console.log("i:" + i);
+            console.log("parts[i].length (" + parts[i].length + ") - 5 (" + (parts[i].length - 5) + ") <= extentions (" + extensions + ")");
             if((parts[i].length - 5) <= extensions) {
                 return parts[i];
             }
