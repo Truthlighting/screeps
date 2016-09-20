@@ -7,18 +7,17 @@ var roleHauler = {
 
     run: function(creep) {
 
-        var notFullNotEmptyContainers = creep.room.find(FIND_STRUCTURES, {
+        var notEmptyContainers = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                     return (structure.structureType == STRUCTURE_CONTAINER) &&
-                           _.sum(structure.store) < structure.storeCapacity;
+                           _.sum(structure.store) > 0;
                     }
         })
 
-        var notFullNotEmptyStoragePlaces = creep.room.find(FIND_STRUCTURES, {
+        var notFullStoragePlaces = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                     return (structure.structureType == STRUCTURE_STORAGE) &&
-                        (_.sum(structure.store) < structure.storeCapacity &&
-                        _.sum(structure.store > 0));
+                        (_.sum(structure.store) < structure.storeCapacity)
                     }
         })
 
@@ -35,17 +34,17 @@ var roleHauler = {
         }
 
         if (transporting) {
-            if (notFullNotEmptyStoragePlaces.length > 0) {
-                var notFullNotEmptyStorage = creep.pos.findClosestByPath(notFullNotEmptyStoragePlaces);
-                if (creep.transfer(notFullNotEmptyStorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(notFullNotEmptyStorage);
+            if (notFullStoragePlaces.length > 0) {
+                var notFullStorage = creep.pos.findClosestByPath(notFullStoragePlaces);
+                if (creep.transfer(notFullStorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(notFullStorage);
                 }
             }
         } else if (!idling) {
-            if(notFullNotEmptyContainers.length > 0) {
-                var notFullNotEmptyContainer = creep.pos.findClosestByPath(notFullNotEmptyContainers);
-                if (creep.withdraw(notFullNotEmptyContainer, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(notFullNotEmptyContainer);
+            if(notEmptyContainers.length > 0) {
+                var notEmptyContainer = creep.pos.findClosestByPath(notEmptyContainers);
+                if (creep.withdraw(notEmptyContainer, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(notEmptyContainer);
                 }
             }
         } else {
