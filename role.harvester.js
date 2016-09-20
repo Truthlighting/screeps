@@ -37,15 +37,28 @@ var roleHarvester = {
             }
 
         } else {
-            var energyStorageStructures = creep.room.find(FIND_STRUCTURES, {
-                        filter: (structure) => {
-                            return (structure.structureType == STRUCTURE_EXTENSION ||
-                 //           structure.structureType == STRUCTURE_CONTAINER ||
-                            structure.structureType == STRUCTURE_SPAWN) &&
-                //            structure.structureType == STRUCTURE_TOWER) &&
-                            (structure.energy < structure.energyCapacity || _.sum(structure.store) < structure.storeCapacity);
-                        }
-            })
+            var energyStorageStructures = [];
+            var haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
+            if (haulers.length == 0) {
+                energyStorageStructures = creep.room.find(FIND_STRUCTURES, {
+                            filter: (structure) => {
+                                return (structure.structureType == STRUCTURE_EXTENSION ||
+                                structure.structureType == STRUCTURE_SPAWN) &&
+                    //            structure.structureType == STRUCTURE_TOWER) &&
+                                (structure.energy < structure.energyCapacity);
+                    }
+                })
+            } else {
+                energyStorageStructures = creep.room.find(FIND_STRUCTURES, {
+                            filter: (structure) => {
+                                return (structure.structureType == STRUCTURE_EXTENSION ||
+                                structure.structureType == STRUCTURE_CONTAINER ||
+                                structure.structureType == STRUCTURE_SPAWN) &&
+                    //            structure.structureType == STRUCTURE_TOWER) &&
+                                (structure.energy < structure.energyCapacity || _.sum(structure.store) < structure.storeCapacity);
+                            }
+                })
+            }
 
             if(energyStorageStructures.length > 0) {
                 var energyStorageStructure = creep.pos.findClosestByPath(energyStorageStructures);
@@ -65,7 +78,7 @@ var roleHarvester = {
                     var structureToRepair = creep.pos.findClosestByPath(structuresToRepair);
                     if (creep.repair(structureToRepair) === ERR_NOT_IN_RANGE) {
                         creep.moveTo(structureToRepair);
-                        creep.say("Mvg to Repair");
+                        //creep.say("Mvg to Repair");
                     }
 
 
