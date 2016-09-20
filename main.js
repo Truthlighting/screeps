@@ -34,7 +34,7 @@ module.exports.loop = function () {
     var sources = Game.rooms['W2N48'].find(FIND_SOURCES);
     var harvesterSources = _.map(Game.creeps, 'memory.assignedSource');
     var result;
-    for (var i=0, l=sources.length; i < l, i++) {
+    for (var i=0, l=sources.length; i < l; i++) {
         if (harvesterSources.indexOf(array[i]) == -1) { result = array[i]; break; }
     }
     console.log(result);
