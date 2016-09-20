@@ -40,7 +40,7 @@ var roleHauler = {
                     creep.moveTo(notFullStorage);
                 }
             }
-        } else if (!idling) {
+        } else if (!creep.memory.idling) {
             if(notEmptyContainers.length > 0) {
                 var notEmptyContainer = creep.pos.findClosestByPath(notEmptyContainers);
                 if (creep.withdraw(notEmptyContainer, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
