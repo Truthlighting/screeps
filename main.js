@@ -15,6 +15,9 @@ if (!Memory.bCreepID) {
 if (!Memory.uCreepID) {
     Memory.uCreepID = 1;
 }
+if (!Memory.cCreepID) {
+    Memory.cCreepID = 1;
+}
 
 module.exports.loop = function () {
 
@@ -28,11 +31,19 @@ module.exports.loop = function () {
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
 //    console.log('Harvesters: ' + harvesters.length);
 
-    if(harvesters.length < 3 && Game.spawns['Harmony'].canCreateCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], "H-" + Memory.hCreepID)==OK) {
+    if(harvesters.length < 2 && Game.spawns['Harmony'].canCreateCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], "H-" + Memory.hCreepID)==OK) {
         var newName = Game.spawns['Harmony'].createCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], "H-" + Memory.hCreepID, {role: 'harvester'});
         Memory.hCreepID++;
         console.log('Spawning new harvester: ' + newName);
     }
+
+    var haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
+
+    if(haulers.length < 1 && Game.spawns['Harmony'].canCreateCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], "C-" + Memory.cCreepID)==OK) {
+        var newName = Game.spawns['Harmony'].createCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], "C-" + Memory.cCreepID, {role: 'hauler'});
+        Memory.cCreepID++;
+        console.log('Spawning new hauler: ' + newName);
+
 
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
 //    console.log('Upgraders: ' + harvesters.length);
@@ -51,6 +62,7 @@ module.exports.loop = function () {
         Memory.bCreepID++;
         console.log('Spawning new builder: ' + newName);
     }
+
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
