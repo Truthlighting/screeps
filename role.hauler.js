@@ -33,7 +33,7 @@ var roleHauler = {
             creep.say("C-Idling")
         }
 
-        if (transporting) {
+        if (creep.memory.transporting) {
             if (notFullStoragePlaces.length > 0) {
                 var notFullStorage = creep.pos.findClosestByPath(notFullStoragePlaces);
                 if (creep.transfer(notFullStorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
