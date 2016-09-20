@@ -50,6 +50,7 @@ module.exports =
         {
             return me.canSpawn(spawn, role.type);
         });
+        console.log(toSpawnAt.length);
         if(!toSpawnAt.length)
             return;
         console.log("getting here1");
