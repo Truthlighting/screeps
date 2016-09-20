@@ -80,6 +80,6 @@ module.exports.loop = function () {
             roleHauler.run(creep);
         }
     }
-    }
+
     roleTower.run();
 };
