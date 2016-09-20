@@ -12,7 +12,6 @@ var roleHauler = {
                                             structure.store[RESOURCE_ENERGY] > 0
 
         })
-        console.log(notEmptyContainers.length);
         var notFullStoragePlaces = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => structure.structureType == STRUCTURE_STORAGE &&
                                            _.sum(structure.store) < structure.storeCapacity
@@ -43,7 +42,7 @@ var roleHauler = {
         } else if (!creep.memory.idling) {
             creep.say(notEmptyContainers.length);
             if(notEmptyContainers.length > 0) {
-                creep.say("gathering");
+
                 var notEmptyContainer = creep.pos.findClosestByPath(notEmptyContainers);
                 if (creep.withdraw(notEmptyContainer, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(notEmptyContainer);
