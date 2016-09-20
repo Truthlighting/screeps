@@ -109,12 +109,12 @@ module.exports =
         //console.log(role);
         console.log("spawnPoint: " + spawnPoint + " spawnPoint.energy: " + spawnPoint.energy + " this.room.energyAvailable: " + spawnPoint.room.energyAvailable);
         //return spawnPoint.energy >= this.spawnCost(role)
-        return this.findMostExpensiveAffordableBody(role)
+        return this.findMostExpensiveAffordableBody(spawnPoint, role)
             && (spawnPoint.spawning == null
             || spawnPoint.spawning == undefined);
     },
 
-    findMostExpensiveAffordableBody: function(role)
+    findMostExpensiveAffordableBody: function(spawnPoint, role)
     {
         var manager = require('roleManager');
         var bodyArray = manager.getRoleBodyParts(role);
