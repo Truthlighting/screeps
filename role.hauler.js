@@ -42,7 +42,7 @@ var roleHauler = {
         })
 
 
-        if(creep.memory.transporting && creep.carry.energy == 0) {
+        if(creep.memory.transporting && creep.carry.energy == 0 || (notEmptyContainers.length > 0 && creep.memory.idling == true)) {
             creep.memory.transporting = false;
             creep.memory.idling = false;
             creep.say("C-Travelling");
