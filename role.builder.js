@@ -6,14 +6,20 @@ var roleBuilder = {
     /** @param {Creep} creep **/
     run: function(creep) {
         var activeSource = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
-
+        var energyStorageStructures = creep.room.find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                    return (structure.structureType == STRUCTURE_CONTAINER ||
+                    structure.structureType == STRUCTURE_STORAGE) &&
+                    (structure.store[RESOURCE_ENERGY] > 0)
+                    }
+            })
 
         //console.log(activeSource);
-        if ((creep.memory.building && creep.carry.energy == 0 && activeSource !== null) || (creep.memory.idling && activeSource !== null)) {
+        if ((creep.memory.building && creep.carry.energy == 0 && energyStorageStructures.length > 0) || (creep.memory.idling && energyStorageStructures.length > 0)) {
             creep.memory.building = false;
             creep.memory.idling = false;
             creep.say('harvesting');
-        } else if (!creep.memory.building && (creep.carry.energy == creep.carryCapacity || ((activeSource === null) && creep.carry.energy > 0))) {
+        } else if (!creep.memory.building && (creep.carry.energy == creep.carryCapacity || ((energyStorageStructures.length == 0) && creep.carry.energy > 0))) {
             creep.memory.building = true;
             creep.memory.idling = false;
             creep.say('building');
@@ -49,13 +55,7 @@ var roleBuilder = {
 
         else if (!creep.memory.idling) {
             //var target = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
-            var energyStorageStructures = creep.room.find(FIND_STRUCTURES, {
-                        filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_CONTAINER ||
-                            structure.structureType == STRUCTURE_STORAGE) &&
-                            (structure.store[RESOURCE_ENERGY] > 0)
-                        }
-            })
+
 
 
             if(energyStorageStructures.length > 0) {

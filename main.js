@@ -30,7 +30,6 @@ module.exports.loop = function () {
     }
 
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-//    console.log('Harvesters: ' + harvesters.length);
     var sources = Game.rooms['W2N48'].find(FIND_SOURCES);
     var harvesterSources = _.map(harvesters, 'memory.assignedSource.id');
     //console.log("hs: " + harvesterSources + " s: " + sources);
