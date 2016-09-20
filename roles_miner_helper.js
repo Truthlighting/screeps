@@ -10,6 +10,7 @@
 
 var helper = {
     parts: [
+        [MOVE, CARRY],
         [MOVE, CARRY, MOVE, CARRY],
         [MOVE, CARRY, MOVE, CARRY, MOVE, CARRY]
     ],
