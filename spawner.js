@@ -101,9 +101,9 @@ module.exports =
         if(typeof spawnPoint == "string" && role == undefined)
         {
             role = spawnPoint;
-            spawnPoint = Game.spawns.Spawn1;
+            spawnPoint = Game.spawns['Harmony'];
         }
-
+        console.log(role);
         return spawnPoint.energy >= this.spawnCost(role)
             && (spawnPoint.spawning == null
             || spawnPoint.spawning == undefined);
