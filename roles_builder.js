@@ -48,7 +48,7 @@ var builder = {
 
         //If out of energy, go to spawn and recharge
         if(creep.energy == 0) {
-            var closestSpawn = creep.pos.findNearest(Game.MY_SPAWNS, {
+            var closestSpawn = creep.pos.findClosestByPath(FIND_MY_SPAWNS, {
                 filter: function(spawn)
                 {
                     return spawn.energy > 0 && creep.pos.inRangeTo(spawn, 3);
@@ -64,7 +64,7 @@ var builder = {
             //First, we're going to check for damaged ramparts. We're using ramparts as the first line of defense
             //and we want them nicely maintained. This is especially important when under attack. The builder will
             //repair the most damaged ramparts first
-            var structures = creep.room.find(Game.STRUCTURES);
+            var structures = creep.room.find(STRUCTURES);
             var damagedRamparts = [ ];
 
             for(var index in structures)
@@ -89,7 +89,7 @@ var builder = {
 
             //Next we're going to look for general buildings that have less than 50% health, and we'll go to repair those.
             //We set it at 50%, because we don't want builders abandoning their duty every time a road gets walked on
-            var halfBroken = creep.room.find(Game.STRUCTURES);
+            var halfBroken = creep.room.find(STRUCTURES);
             var toRepair = [ ];
             for(var index in halfBroken)
                 if((halfBroken[index].hits / halfBroken[index].hitsMax) < 0.5)
@@ -105,7 +105,7 @@ var builder = {
             }
 
             //If no repairs are needed, we're just going to go find some structures to build
-            var targets = creep.pos.findNearest(Game.CONSTRUCTION_SITES);
+            var targets = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
             if(targets) {
 
                 if(!creep.pos.isNearTo(targets))
