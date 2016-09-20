@@ -10,8 +10,14 @@ var roleHauler = {
         var energyStorageStructures = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_EXTENSION ||
-                        structure.structureType == STRUCTURE_SPAWN ||
-                        structure.structureType == STRUCTURE_TOWER) &&
+                        structure.structureType == STRUCTURE_SPAWN) &&
+                        (structure.energy < structure.energyCapacity);
+                    }
+        })
+
+        var towers = creep.room.find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                    return (structure.structureType == STRUCTURE_TOWER) &&
                         (structure.energy < structure.energyCapacity);
                     }
         })
@@ -55,6 +61,11 @@ var roleHauler = {
                 var energyStorageStructure = creep.pos.findClosestByPath(energyStorageStructures);
                 if (creep.transfer(energyStorageStructure, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(energyStorageStructure);
+                }
+            } else if (towers.length > 0) {
+                var tower = creep.pos.findClosestByPath(towers);
+                if (creep.transfer(tower, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(tower);
                 }
             } else if (notFullStoragePlaces.length > 0) {
                 var notFullStorage = creep.pos.findClosestByPath(notFullStoragePlaces);
