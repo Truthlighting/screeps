@@ -52,7 +52,7 @@ module.exports =
         });
         if(! toSpawnAt.length)
             return;
-        console.log("getting here");
+        console.log("getting here1");
         toSpawnAt = toSpawnAt[0];
         this.spawn(role.type, role.memory, toSpawnAt);
 
