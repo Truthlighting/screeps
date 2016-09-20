@@ -17,8 +17,10 @@ module.exports = function(creeps)
 
         if(roleManager.roleExists(role))
             role = roleManager.getRole(role);
+            console.log("role1: " + role);
 
         var role = Object.create(role);
+        console.log("role2: " + role);
         role.setCreep(creep);
         try { role.run(); } catch(e) { };
     }
