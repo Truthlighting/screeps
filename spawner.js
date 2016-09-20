@@ -26,7 +26,7 @@ module.exports =
         if(!Memory.spawnQue.length)
             return;
 
-        var spawns = Game.rooms['W2N48'].find(Game.MY_SPAWNS, {
+        var spawns = Game.rooms['W2N48'].find(FIND_MY_SPAWNS, {
             filter: function(spawn)
             {
                 return spawn.spawning === undefined || spawn.spawning === null;
