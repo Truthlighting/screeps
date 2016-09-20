@@ -43,7 +43,7 @@ var roleHauler = {
             if (energyStorageStructures.length > 0) {
                 var energyStorageStructure = creep.pos.findClosestByPath(energyStorageStructures);
                 if (creep.transfer(energyStorageStructure, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(energyStorageStructures);
+                    creep.moveTo(energyStorageStructure);
                 }
             } else if (notFullStoragePlaces.length > 0) {
                 var notFullStorage = creep.pos.findClosestByPath(notFullStoragePlaces);
