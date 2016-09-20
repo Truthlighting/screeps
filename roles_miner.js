@@ -17,7 +17,7 @@ var miner = {
     {
         var creep = this.creep;
 
-        var source = creep.pos.findClosestByPath(SOURCES, {
+        var source = creep.pos.findClosestByPath(FIND_SOURCES, {
             filter: function(source)
             {
                 if(Memory.sources[source.id] == undefined || Memory.sources[source.id].miner == undefined || Memory.sources[source.id].miner == creep.id)
