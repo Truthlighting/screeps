@@ -48,7 +48,7 @@ module.exports.loop = function () {
 
     var haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
 
-    if(haulers.length < 1 && Game.spawns['Harmony'].canCreateCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], "C-" + Memory.cCreepID)==OK) {
+    if(haulers.length < 2 && Game.spawns['Harmony'].canCreateCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], "C-" + Memory.cCreepID)==OK) {
         var newName = Game.spawns['Harmony'].createCreep([CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE], "C-" + Memory.cCreepID, {role: 'hauler'});
         Memory.cCreepID++;
         console.log('Spawning new hauler: ' + newName);
