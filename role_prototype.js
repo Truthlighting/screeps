@@ -53,7 +53,7 @@ var proto = {
         var extensions = Game.rooms['W2N48'].find(FIND_MY_STRUCTURES, {
             filter: function(structure)
             {
-                return (structure.structureType == Game.STRUCTURE_EXTENSION && structure.energy >= 200);
+                return (structure.structureType == STRUCTURE_EXTENSION && structure.energy >= 200);
             }
         }).length;
 
@@ -90,7 +90,7 @@ var proto = {
         var creep = this.creep;
 
         var distance = 4;
-        var restTarget = creep.pos.findNearest(Game.MY_SPAWNS);
+        var restTarget = creep.pos.findClosestByPath(FIND_MY_SPAWNS);
 
         if(!civilian) {
             var flags = Game.flags;
@@ -130,7 +130,7 @@ var proto = {
         var creep = this.creep;
 
         if(!target)
-            target = creep.pos.findNearest(Game.HOSTILE_CREEPS);
+            target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
 
         if(target) {
             if (target.pos.inRangeTo(creep.pos, 3) ) {
@@ -145,7 +145,7 @@ var proto = {
     {
         var creep = this.creep;
 
-        var target = creep.pos.findNearest(Game.HOSTILE_CREEPS);
+        var target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
         if(target !== null && target.pos.inRangeTo(creep.pos, 3))
             creep.moveTo(creep.pos.x + creep.pos.x - target.pos.x, creep.pos.y + creep.pos.y - target.pos.y );
     },
@@ -175,7 +175,7 @@ var proto = {
     {
         var creep = this.creep;
 
-        var closeArchers = creep.pos.findNearest(Game.HOSTILE_CREEPS, {
+        var closeArchers = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
             filter: function(enemy)
             {
                 return enemy.getActiveBodyparts(Game.RANGED_ATTACK) > 0
@@ -186,7 +186,7 @@ var proto = {
         if(closeArchers != null)
             return closeArchers;
 
-        var closeMobileMelee = creep.pos.findNearest(Game.HOSTILE_CREEPS, {
+        var closeMobileMelee = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
             filter: function(enemy)
             {
                 return enemy.getActiveBodyparts(Game.ATTACK) > 0
@@ -198,7 +198,7 @@ var proto = {
         if(closeMobileMelee != null)
             return closeMobileMelee;
 
-        var closeHealer = creep.pos.findNearest(Game.HOSTILE_CREEPS, {
+        var closeHealer = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS, {
             filter: function(enemy)
             {
                 return enemy.getActiveBodyparts(Game.HEAL) > 0
@@ -210,7 +210,7 @@ var proto = {
         if(closeHealer != null)
             return closeHealer;
 
-        return creep.pos.findNearest(Game.HOSTILE_CREEPS);
+        return creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
     }
 };
 
