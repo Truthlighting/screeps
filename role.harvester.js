@@ -32,8 +32,8 @@ var roleHarvester = {
                 //creep.say("H - " + target.energy);
 
                 if (creep.harvest(assignedSource) == ERR_NOT_IN_RANGE) {
-                    creep.say("confused");
-                    creep.moveTo(assignedSource);
+                    creep.say(creep.moveTo(assignedSource));
+
                 }
             }
 
