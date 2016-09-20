@@ -53,7 +53,7 @@ module.exports =
             //console.log(me.canSpawn(spawn, role.type));
             return me.canSpawn(spawn, role.type);
         });
-        console.log("toSpawnAt: " + toSpawnAt);
+        //console.log("toSpawnAt: " + toSpawnAt);
         if(!toSpawnAt.length)
             return;
         //console.log("getting here1");
@@ -65,6 +65,7 @@ module.exports =
 
     spawn: function(role, memory, spawnPoint)
     {
+        console.log("role: " + role + " memory: " + memory + " spawnPoint: " + spawnPoint);
         if(!spawnPoint)
             spawnPoint = Game.spawns['Harmony'];
 
@@ -75,10 +76,10 @@ module.exports =
             return;
         }
 
-        if(!this.canSpawn(spawnPoint, role))
+        /*if(!this.canSpawn(spawnPoint, role))
         {
             return;
-        }
+        }*/
 
         if(memory == undefined)
             memory = { };
@@ -107,7 +108,7 @@ module.exports =
             spawnPoint = Game.spawns['Harmony'];
         }
         //console.log(role);
-        console.log("spawnPoint: " + spawnPoint + " spawnPoint.energy: " + spawnPoint.energy + " this.room.energyAvailable: " + spawnPoint.room.energyAvailable);
+        //console.log("spawnPoint: " + spawnPoint + " spawnPoint.energy: " + spawnPoint.energy + " this.room.energyAvailable: " + spawnPoint.room.energyAvailable);
         //return spawnPoint.energy >= this.spawnCost(role)
         return this.findMostExpensiveAffordableBody(spawnPoint, role)
             && (spawnPoint.spawning == null
@@ -171,8 +172,8 @@ module.exports =
                     total += 600
             }
         }
-        console.log("body: " + body);
-        console.log("total cost: " + total);
+        //console.log("body: " + body);
+        //console.log("total cost: " + total);
         return total;
     },
 
