@@ -155,6 +155,7 @@ module.exports =
                     total += 600
             }
         }
+        console.log("parts: " + parts);
         console.log("total cost for " + role + ": " + total);
         return total;
     },
