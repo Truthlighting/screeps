@@ -24,7 +24,7 @@ var proto = {
     {
         if(this.creep.memory.onSpawned == undefined) {
             console.log("onSpawned undefined.");
-            for (var key in this) { console.log(key); }
+            //for (var key in this) { console.log(key); }
             this.onSpawn();
             console.log(this.creep.memory.onSpawned = true);
         }
