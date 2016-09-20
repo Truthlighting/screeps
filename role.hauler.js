@@ -10,7 +10,7 @@ var roleHauler = {
         var notEmptyContainers = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                     return (structure.structureType == STRUCTURE_CONTAINER) &&
-                           _.sum(structure.store) > 0;
+                           structure.store[RESOURCE_ENERGY] > 0;
                     }
         })
 
@@ -24,7 +24,7 @@ var roleHauler = {
         if(creep.memory.transporting && creep.carry.energy == 0) {
             creep.memory.transporting = false;
             creep.say("C-Travelling");
-        } else if (!creep.memory.transporting && creep.carry.energy == creep.carryCapacity || ((!creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE)) && creep.carry.energy > 0)) {
+        } else if (!creep.memory.transporting && creep.carry.energy == creep.carryCapacity || ((!creep.pos.findClosestByPath(notFullStoragePlaces)) && creep.carry.energy > 0)) {
             creep.memory.transporting = true;
             creep.say("C-Xporting");
         } else {
