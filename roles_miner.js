@@ -69,7 +69,6 @@ var miner = {
         creep.memory.helpers = [];
 
         var source = this.getOpenSource();
-        console.log("source: " + source);
         this.setSourceToMine(source);
 
         creep.memory.onCreated = true;
