@@ -21,7 +21,7 @@ module.exports =
 
     spawnNextInQue: function()
     {
-        console.log("getting here");
+
         this.initSpawnQue();
 
         if(!Memory.spawnQue.length)
@@ -37,7 +37,7 @@ module.exports =
 
         if(!spawns.length)
             return;
-
+        console.log("getting here1");
         var role = Memory.spawnQue[0];
 
         if(typeof role == "string")
