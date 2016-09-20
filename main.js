@@ -35,7 +35,7 @@ module.exports.loop = function () {
     var harvesterSources = _.map(Game.creeps, 'memory.assignedSource');
     var result;
     for (var i=0, l=sources.length; i < l; i++) {
-        if (harvesterSources.indexOf(array[i]) == -1) { result = array[i]; break; }
+        if (harvesterSources.indexOf(sources[i]) == -1) { result = sources[i]; break; }
     }
     console.log(result);
 
