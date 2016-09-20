@@ -33,14 +33,14 @@ module.exports.loop = function () {
 //    console.log('Harvesters: ' + harvesters.length);
     var sources = Game.rooms['W2N48'].find(FIND_SOURCES);
     var harvesterSources = _.map(Game.creeps, 'memory.assignedSource');
-    var result;
+    var source;
     for (var i=0, l=sources.length; i < l; i++) {
-        if (harvesterSources.indexOf(sources[i]) == -1) { result = sources[i]; break; }
+        if (harvesterSources.indexOf(sources[i]) == -1) { source = sources[i]; break; }
     }
-    console.log(result);
+    //console.log(result);
 
     if(harvesters.length < 2 && Game.spawns['Harmony'].canCreateCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE], "H-" + Memory.hCreepID)==OK) {
-        var newName = Game.spawns['Harmony'].createCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE], "H-" + Memory.hCreepID, {role: 'harvester'});
+        var newName = Game.spawns['Harmony'].createCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE], "H-" + Memory.hCreepID, {role: 'harvester', assignedSource: source});
         Memory.hCreepID++;
         console.log('Spawning new harvester: ' + newName);
     }
