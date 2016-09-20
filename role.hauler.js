@@ -43,8 +43,8 @@ var roleHauler = {
                 }
             }
         } else if (!creep.memory.idling) {
-            creep.say("gathering");
             if(notEmptyContainers.length > 0) {
+                creep.say("gathering");
                 var notEmptyContainer = creep.pos.findClosestByPath(notEmptyContainers);
                 if (creep.withdraw(notEmptyContainer, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(notEmptyContainer);
