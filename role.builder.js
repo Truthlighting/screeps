@@ -29,7 +29,7 @@ var roleBuilder = {
             creep.say('B-idling');
         }
 
-        if (creep.memory.building) {
+        if (creep.memory.building && !creep.memory.idling) {
             var buildSites = creep.room.find(FIND_CONSTRUCTION_SITES);
             if (buildSites.length != 0) {
                 var targetToBuild = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
