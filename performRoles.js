@@ -25,7 +25,7 @@ module.exports = function(creeps)
         //for (var key in role) { console.log(key); }
         if (typeof(role) == 'string')
         {
-            role = JSON.parse(role);
+            var role = JSON.parse(role);
             //var role = role.setCreep(creep);
             console.log("role as string: " + role);
         }
