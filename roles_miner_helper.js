@@ -61,7 +61,7 @@ var helper = {
         //If we can still pick up energy, let's do that
         //console.log("miner: " + miner);
         console.log("creep:" + creep);
-        console.log("creep.energy: (" + creep.energy + ") < creep.energyCapacity (" + creep.energyCapacity + ")");
+        console.log("creep.carry: (" + _.sum(creep.carry) + ") < creep.carryCapacity (" + creep.carryCapacity + ")");
         if (creep.energy < creep.energyCapacity) {
             console.log("i'm here");
             if (creep.pos.isNearTo(miner)) {
