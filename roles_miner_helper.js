@@ -62,6 +62,7 @@ var helper = {
         if (creep.energy < creep.energyCapacity) {
             if (creep.pos.isNearTo(miner)) {
                 var energy = creep.pos.findInRange(FIND_DROPPED_ENERGY, 1)[0];
+                console.log("energy: " + energy);
                 creep.pickup(energy);
             }
             else {
