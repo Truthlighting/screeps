@@ -84,7 +84,7 @@ var helper = {
 
         if (!target) {
             //var spawn = creep.pos.findClosestByPath(FIND_MY_SPAWNS);
-            var spawn = creep.room.find(FIND_STRUCTURES, {
+            var energyStructures = creep.room.find(FIND_STRUCTURES, {
                             filter: (structure) => {
                                 return (structure.structureType == STRUCTURE_EXTENSION ||
                                 structure.structureType == STRUCTURE_SPAWN) &&
@@ -92,16 +92,17 @@ var helper = {
                                 (structure.energy < structure.energyCapacity);
                             }
             })
+            var energyStructure = creep.room.findClosestByPath(energyStructures);
             //console.log("spawn: " + spawn);
             //If we found it, set it as our target
-            if (spawn)
-                target = spawn;
+            if (energyStructure)
+                target = energyStructure;
         }
-        console.log(target);
-        console.log("target: " + target + " creep.pos.findPathTo: " + creep.pos.findPathTo(target));
+        //console.log(target);
+        //console.log(" creep.pos.findPathTo: " + creep.pos.findPathTo(target));
         //Let's get the direction we want to go in
         var targetDirection = creep.pos.findPathTo(target, { ignoreCreeps: true })[0].direction;
-        console.log("I'm here 3");
+        //console.log("I'm here 3");
         //Let's look for a courier in that direction. We'll check on making sure they're the right
         //role, if they can hold any energy, if they're in range and if they're in the same direction
         var leftDir = targetDirection - 1;
@@ -138,7 +139,7 @@ var helper = {
             target = courier;
             target.memory.courier = true;
         }
-        console.log("target: " + target);
+        //console.log("target: " + target);
         //If we're near to the target, either give it our energy or drop it
         if (creep.pos.isNearTo(target)) {
             if (_.sum(target.carry) < target.carryCapacity) {
