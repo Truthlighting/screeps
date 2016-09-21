@@ -44,21 +44,22 @@ module.exports =
         {
             role = { type: role, memory: { } };
         }
-
+        var body = [];
         var me = this;
         //console.log(spawns);
         var toSpawnAt = spawns.filter(function(spawn)
         {
             //console.log("spawn: " + spawn + " role.type: " + role.type);
             //console.log(me.canSpawn(spawn, role.type));
-            return me.canSpawn(spawn, role.type);
+            body = me.canSpawn(spawn, role.type);
+            return body;
         });
         //console.log("toSpawnAt: " + toSpawnAt);
         if(!toSpawnAt.length)
             return;
         //console.log("getting here1");
         toSpawnAt = toSpawnAt[0];
-        this.spawn(role.type, role.memory, toSpawnAt);
+        this.spawn(role.type, role.memory, toSpawnAt, body);
 
         Memory.spawnQue.shift();
     },
@@ -82,7 +83,7 @@ module.exports =
 
         if(memory == undefined)
             memory = { };
-        console.log("getting here1");
+
         memory['role'] = role;
 
         var nameCount = 0;
