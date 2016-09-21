@@ -5,7 +5,7 @@ module.exports = {
     roleExists: function(role){
         try
         {
-            if(require("roles_" + role)) throw "does not exist.";
+            if(require("roles_" + role)) throw "roles_" + role + " does not exist.";
             return true;
         }
         catch(e)
