@@ -6,6 +6,7 @@ var countType = require('countType');
 module.exports ={
     init: function()
     {
+        console.log("I'm here");
         if(Memory.factoryInit != undefined)
             return;
         console.log("Initializing factory.");
