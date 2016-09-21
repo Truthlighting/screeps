@@ -79,7 +79,7 @@ var helper = {
         }
 
         var target = null;
-        console.log("I'm here");
+        //console.log("I'm here");
         //Okay, everything below is for dropping energy off
 
         if (!target) {
@@ -92,7 +92,7 @@ var helper = {
                                 (structure.energy < structure.energyCapacity);
                             }
             })
-
+            console.log("I'm here1");
             //If we found it, set it as our target
             if (spawn)
                 target = spawn;
