@@ -26,7 +26,7 @@ module.exports =
 
         if(!Memory.spawnQue.length)
             return;
-        console.log("I'm here");
+
         var spawns = Game.rooms['W2N48'].find(FIND_MY_SPAWNS, {
             filter: function(spawn)
             {
