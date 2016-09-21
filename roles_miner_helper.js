@@ -39,7 +39,6 @@ var helper = {
      * @TODO: When spawns are at .25, and extensions have >= 200, help builders before filling shit up
      */
     action: function () {
-        console.log("i'm here");
         var creep = this.creep;
 
         if (creep.memory.courier !== undefined && creep.memory.courier == true) {
