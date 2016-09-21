@@ -58,7 +58,6 @@ module.exports =
             return;
         //console.log("getting here1");
         toSpawnAt = toSpawnAt[0];
-        console.log("body before pass: " + body);
         this.spawn(role.type, role.memory, toSpawnAt, body);
 
         Memory.spawnQue.shift();
@@ -98,7 +97,7 @@ module.exports =
         }
 
         console.log('Spawning ' + role);
-        console.log(spawnPoint.createCreep(body, name, memory));
+        spawnPoint.createCreep(body, name, memory);
     },
 
     canSpawn: function(spawnPoint, role)
