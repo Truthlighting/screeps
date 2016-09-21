@@ -14,7 +14,7 @@ module.exports = function(creeps)
             continue;
 
         var role = creep.memory.role;
-
+        console.log("role: " + role + " roleManager.roleExists(role): " + roleManager.roleExists(role));
         if(roleManager.roleExists(role))
             role = roleManager.getRole(role);
             //console.log("role1: ");
