@@ -57,8 +57,9 @@ var helper = {
             creep.suicide();
             return;
         }
-        console.log("i'm here");
+        //console.log("i'm here");
         //If we can still pick up energy, let's do that
+        console.log("miner: " + miner);
         if (creep.energy < creep.energyCapacity) {
             if (creep.pos.isNearTo(miner)) {
                 var energy = creep.pos.findInRange(FIND_DROPPED_ENERGY, 1)[0];
