@@ -32,7 +32,7 @@ module.exports = {
             return false;
 
         var roleObject = this.getRole(role);
-        console.log("roleObject: " + roleObject);
+        console.log("roleObject: " + roleObject + " role: " + role);
         if (roleObject.getParts !== undefined) {
             //console.log("role.getParts.call(role): " + role.getParts.call(role));
             console.log("returning A");
