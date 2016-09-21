@@ -57,7 +57,7 @@ var helper = {
             creep.suicide();
             return;
         }
-        console.log("i'm here1");
+        //console.log("i'm here1");
         //If we can still pick up energy, let's do that
         //console.log("miner: " + miner);
         //console.log("creep:" + creep);
@@ -79,7 +79,7 @@ var helper = {
         }
 
         var target = null;
-
+        console.log("I'm here");
         //Okay, everything below is for dropping energy off
 
         if (!target) {
