@@ -84,7 +84,15 @@ var helper = {
         //Okay, everything below is for dropping energy off
 
         if (!target) {
-            var spawn = creep.pos.findClosestByPath(FIND_MY_SPAWNS);
+            //var spawn = creep.pos.findClosestByPath(FIND_MY_SPAWNS);
+            var spawn = creep.room.find(FIND_STRUCTURES, {
+                            filter: (structure) = > {
+                                return (structure.structureType == STRUCTURE_EXTENSION ||
+                                structure.structureType == STRUCTURE_SPAWN) &&
+                //            structure.structureType == STRUCTURE_TOWER) &&
+                                (structure.energy < structure.energyCapacity);
+                            }
+            })
 
             //If we found it, set it as our target
             if (spawn)
@@ -133,7 +141,7 @@ var helper = {
 
         //If we're near to the target, either give it our energy or drop it
         if (creep.pos.isNearTo(target)) {
-            if (target.energy < target.energyCapacity) {
+            if (_.sum(target.carry) < target.carryCapacity) {
                 creep.transfer(target, RESOURCE_ENERGY);
             }
             else
