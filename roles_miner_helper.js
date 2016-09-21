@@ -63,7 +63,7 @@ var helper = {
         console.log("creep:" + creep);
         console.log("creep.carry: (" + _.sum(creep.carry) + ") < creep.carryCapacity (" + creep.carryCapacity + ")");
         console.log(creep.carry < creep.carryCapacity);
-        if (creep.carry < creep.carryCapacity) {
+        if (_sum(creep.carry) < creep.carryCapacity) {
             console.log("i'm here");
             if (creep.pos.isNearTo(miner)) {
                 var energy = creep.pos.findInRange(FIND_DROPPED_ENERGY, 1)[0];
