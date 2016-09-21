@@ -56,9 +56,14 @@ var miner = {
             creepsNeeded = 5;
 
         for(var i = 0; i < creepsNeeded; i++)
-            Memory.spawnQue.unshift({ type: 'miner_helper', memory: {
-                miner: creep.id
-            }});
+        {
+            Memory.spawnQue.unshift('miner_helper'); // memory: {
+              //  miner: creep.id
+            //}});
+            Memory.spawnQue[0].memory.miner = creep.id
+        }
+
+
 
         creep.memory.helpersNeeded = creepsNeeded;
     },
