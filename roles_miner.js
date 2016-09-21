@@ -60,7 +60,7 @@ var miner = {
             Memory.spawnQue.unshift('miner_helper'); // memory: {
               //  miner: creep.id
             //}});
-            Memory.spawnQue['0'].memory.miner = creep.id;
+            Memory.spawnQue[0].miner = creep.id;
         }
 
 
