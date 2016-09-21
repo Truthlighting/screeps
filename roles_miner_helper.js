@@ -100,7 +100,7 @@ var helper = {
         //console.log("I'm here1");
         //Let's get the direction we want to go in
         var targetDirection = creep.pos.findPathTo(target, { ignoreCreeps: true })[0].direction;
-
+        console.log("I'm here 3");
         //Let's look for a courier in that direction. We'll check on making sure they're the right
         //role, if they can hold any energy, if they're in range and if they're in the same direction
         var leftDir = targetDirection - 1;
