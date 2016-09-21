@@ -60,18 +60,17 @@ var helper = {
         //console.log("i'm here");
         //If we can still pick up energy, let's do that
         //console.log("miner: " + miner);
-        console.log("creep:" + creep);
-        console.log("creep.carry: (" + _.sum(creep.carry) + ") < creep.carryCapacity (" + creep.carryCapacity + ")");
-        console.log(_.sum(creep.carry) < creep.carryCapacity);
+        //console.log("creep:" + creep);
+        //console.log("creep.carry: (" + _.sum(creep.carry) + ") < creep.carryCapacity (" + creep.carryCapacity + ")");
+        //console.log(_.sum(creep.carry) < creep.carryCapacity);
         if (_.sum(creep.carry) < creep.carryCapacity) {
-            console.log("i'm here");
+            //console.log("i'm here");
             if (creep.pos.isNearTo(miner)) {
                 var energy = creep.pos.findInRange(FIND_DROPPED_ENERGY, 1)[0];
-                console.log("energy: " + energy);
+                //console.log("energy: " + energy);
                 creep.pickup(energy);
             }
             else {
-                console.log("miner.memory.isNearSource: " + miner.memory.isNearSource);
                 if (miner.memory.isNearSource)
                     creep.moveTo(miner);
             }
