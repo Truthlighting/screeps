@@ -32,15 +32,15 @@ module.exports = {
             return false;
 
         var roleObject = this.getRole(role);
-        console.log("roleObject: " + roleObject + " role: " + role);
+        //console.log("roleObject: " + roleObject + " role: " + role);
         if (roleObject.getParts !== undefined) {
             //console.log("role.getParts.call(role): " + role.getParts.call(role));
-            console.log("returning A");
+            //console.log("returning A");
             return roleObject.getParts.call(roleObject);
         } else
         {
-            console.log("returning B");
-            return roleObject.prototype.getParts.call(role);
+            //console.log("returning B");
+            return roleObject.prototype.getParts.call(roleObject);
         }
     }
 };
