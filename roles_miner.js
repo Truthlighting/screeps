@@ -83,7 +83,6 @@ var miner = {
 
     action: function()
     {
-        console.log("I'm here");
         var creep = this.creep;
 
         //Basically, each miner can empty a whole source by themselves. Also, since they're slow, we don't have them
@@ -110,6 +109,7 @@ var miner = {
 
         Memory.sources[source.id].miner = creep.id;
         //console.log("source: " + source);
+        console.log("I'm here1");
         creep.moveTo(source);
         creep.harvest(source);
     }
