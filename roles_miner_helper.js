@@ -97,6 +97,7 @@ var helper = {
             if (spawn)
                 target = spawn;
         }
+        console.log(target);
         console.log("target: " + target + " creep.pos.findPathTo: " + creep.pos.findPathTo(target));
         //Let's get the direction we want to go in
         var targetDirection = creep.pos.findPathTo(target, { ignoreCreeps: true })[0].direction;
