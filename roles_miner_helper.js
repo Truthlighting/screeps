@@ -98,6 +98,7 @@ var helper = {
             if (energyStructure)
                 target = energyStructure;
         }
+        console.log(energyStructure);
         console.log(target);
         //console.log(" creep.pos.findPathTo: " + creep.pos.findPathTo(target));
         //Let's get the direction we want to go in
