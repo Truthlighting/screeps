@@ -51,8 +51,7 @@ module.exports =
         {
             //console.log("spawn: " + spawn + " role.type: " + role.type);
             //console.log(me.canSpawn(spawn, role.type));
-            body = me.canSpawn(spawn, role.type);
-            return body;
+            return me.canSpawn(spawn, role.type);
         });
         //console.log("toSpawnAt: " + toSpawnAt);
         if(!toSpawnAt.length)
@@ -65,13 +64,14 @@ module.exports =
         Memory.spawnQue.shift();
     },
 
-    spawn: function(role, memory, spawnPoint, body)
+    spawn: function(role, memory, spawnPoint)
     {
-        console.log("role: " + role + " memory: " + memory + " spawnPoint: " + spawnPoint);
+        //console.log("role: " + role + " memory: " + memory + " spawnPoint: " + spawnPoint);
         if(!spawnPoint)
             spawnPoint = Game.spawns['Harmony'];
 
         var manager = require('roleManager');
+        var body = this.findMostExpensiveAffordableBody(spawnPoint, role);
 
         if(!manager.roleExists(role))
         {
