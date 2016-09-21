@@ -52,7 +52,7 @@ var miner = {
         var helperSpawn = source.pos.findClosestByPath(FIND_MY_SPAWNS);
         var steps = helperSpawn.pos.findPathTo(source).length * 2;
         var creepsNeeded = Math.round((steps * 8) / 100);
-
+        console.log("creepsNeeded: " + creepsNeeded);
         if(creepsNeeded > 5)
             creepsNeeded = 5;
         console.log("gets here");
