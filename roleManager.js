@@ -31,12 +31,12 @@ module.exports = {
         if(!this.roleExists(role))
             return false;
 
-        var role = this.getRole(role);
+        var roleObject = this.getRole(role);
 
-        if(role.getParts !== undefined) {
+        if(roleObject.getParts !== undefined) {
             //console.log("role.getParts.call(role): " + role.getParts.call(role));
-            return role.getParts.call(role);
+            return roleObject.getParts.call(role);
         } else
-            return role.prototype.getParts.call(role);
+            return roleObject.prototype.getParts.call(role);
     }
 };
