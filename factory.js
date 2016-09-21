@@ -19,8 +19,9 @@ module.exports ={
     },
 
     memory: function() {
+        console.log("memory spawnque: " + Memory.spawnQue);
         if(Memory.spawnQue == undefined)
-            console.log("memory spawnque: " + (Memory.spawnQue = [ ]));
+            Memory.spawnQue = [ ];
 
         if(Memory.sources == undefined)
             Memory.sources = { };
