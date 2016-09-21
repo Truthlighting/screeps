@@ -97,16 +97,16 @@ var helper = {
             //console.log(creep.room.findClosestByPath(energyStructures));
             console.log(_.valuesIn(energyStructures));
             //console.log(creep.room);
-            var energyStructure = creep.room.findClosestByPath(energyStructures);
+            var energyStructure = creep.room.findClosestByPath(_.valuesIn(energyStructures));
             console.log("energyStructure: " + energyStructure);
             //If we found it, set it as our target
             if (energyStructure)
                 target = energyStructure;
         }
         //console.log("I'm here!");
-        console.log(energyStructures);
-        console.log(energyStructure);
-        console.log(target);
+        //console.log(energyStructures);
+        //console.log(energyStructure);
+        //console.log(target);
         //console.log(" creep.pos.findPathTo: " + creep.pos.findPathTo(target));
         //Let's get the direction we want to go in
         var targetDirection = creep.pos.findPathTo(target, { ignoreCreeps: true })[0].direction;
