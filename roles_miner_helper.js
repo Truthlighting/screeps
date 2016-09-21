@@ -113,7 +113,7 @@ var helper = {
                 return (
                     possibleTarget.memory.role == creep.memory.role
 //					&& possibleTarget.memory.miner == creep.memory.miner
-                    && possibleTarget.energy < possibleTarget.energyCapacity
+                    && _.sum(possibleTarget.carry) < possibleTarget.carryCapacity
                     && creep.pos.inRangeTo(possibleTarget, 1)
                     && (
                         creep.pos.getDirectionTo(possibleTarget) == targetDirection
