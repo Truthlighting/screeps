@@ -75,7 +75,6 @@ module.exports =
         {
             return;
         }
-        console.log("getting here");
         /*if(!this.canSpawn(spawnPoint, role))
         {
             return;
@@ -83,7 +82,7 @@ module.exports =
 
         if(memory == undefined)
             memory = { };
-
+        console.log("getting here1");
         memory['role'] = role;
 
         var nameCount = 0;
