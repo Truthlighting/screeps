@@ -1,4 +1,4 @@
-var performRoles = require('performRoles');
+/*var performRoles = require('performRoles');
 var spawner = require('spawner');
 var countType = require('countType');
 var factory = require('factory');
@@ -10,4 +10,4 @@ spawner.spawnNextInQue();
 
 factory.buildArmyWhileIdle();
 
-performRoles(Game.creeps);
+performRoles(Game.creeps);*/
