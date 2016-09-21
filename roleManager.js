@@ -26,17 +26,20 @@ module.exports = {
         return roleObject;
     },
 
-    getRoleBodyParts: function(role)
-    {
-        if(!this.roleExists(role))
+    getRoleBodyParts: function(role) {
+        if (!this.roleExists(role))
             return false;
 
         var roleObject = this.getRole(role);
 
-        if(roleObject.getParts !== undefined) {
+        if (roleObject.getParts !== undefined) {
             //console.log("role.getParts.call(role): " + role.getParts.call(role));
+            console.log("returning A");
             return roleObject.getParts.call(role);
         } else
+        {
+            console.log("returning B");
             return roleObject.prototype.getParts.call(role);
+        }
     }
 };
