@@ -93,7 +93,7 @@ var helper = {
                                 (structure.energy < structure.energyCapacity);
                             }
             })
-            console.log("I'm heree!");
+            //console.log("I'm heree!");
             var energyStructure = creep.room.findClosestByPath(energyStructures);
             console.log("energyStructure: " + energyStructure);
             //If we found it, set it as our target
