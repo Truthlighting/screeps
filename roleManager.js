@@ -5,11 +5,12 @@ module.exports = {
     roleExists: function(role){
         try
         {
-            require("roles_" + role);
+            if(require("roles_" + role)) throw "does not exist.";
             return true;
         }
         catch(e)
         {
+            console.log("Error: Role " + e);
             return false;
         }
     },
