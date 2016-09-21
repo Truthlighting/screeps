@@ -79,7 +79,7 @@ var helper = {
         }
 
         var target = null;
-        console.log("I'm here");
+        //console.log("I'm here");
         //Okay, everything below is for dropping energy off
 
         if (!target) {
