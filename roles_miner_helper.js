@@ -83,7 +83,7 @@ var helper = {
         //Okay, everything below is for dropping energy off
 
         if (!target) {
-            console.log("I'm heree");
+            //console.log("I'm heree");
             //var spawn = creep.pos.findClosestByPath(FIND_MY_SPAWNS);
             var energyStructures = creep.room.find(FIND_STRUCTURES, {
                             filter: (structure) => {
@@ -93,12 +93,14 @@ var helper = {
                                 (structure.energy < structure.energyCapacity);
                             }
             })
+
             var energyStructure = creep.room.findClosestByPath(energyStructures);
             console.log("energyStructure: " + energyStructure);
             //If we found it, set it as our target
             if (energyStructure)
                 target = energyStructure;
         }
+        console.log("I'm here!");
         console.log(energyStructures);
         console.log(energyStructure);
         console.log(target);
