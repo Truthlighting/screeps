@@ -85,7 +85,7 @@ var helper = {
         if (!target) {
             //var spawn = creep.pos.findClosestByPath(FIND_MY_SPAWNS);
             var spawn = creep.room.find(FIND_STRUCTURES, {
-                            filter: (structure) = > {
+                            filter: (structure) => {
                                 return (structure.structureType == STRUCTURE_EXTENSION ||
                                 structure.structureType == STRUCTURE_SPAWN) &&
                 //            structure.structureType == STRUCTURE_TOWER) &&
