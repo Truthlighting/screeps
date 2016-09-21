@@ -6,8 +6,8 @@ var countType = require('countType');
 module.exports ={
     init: function()
     {
-        console.log("I'm here");
-        console.log("Memory.factoryInit: " + Memory.factoryInit);
+        //console.log("I'm here");
+        //console.log("Memory.factoryInit: " + Memory.factoryInit);
         if(Memory.factoryInit != undefined)
             return;
         console.log("Initializing factory.");
@@ -21,7 +21,7 @@ module.exports ={
     },
 
     memory: function() {
-        console.log("memory spawnque: " + Memory.spawnQue);
+       // console.log("memory spawnque: " + Memory.spawnQue);
         if(Memory.spawnQue == undefined)
             Memory.spawnQue = [ ];
 
