@@ -116,7 +116,7 @@ module.exports =
     {
         var manager = require('roleManager');
         var bodyArray = manager.getRoleBodyParts(role);
-
+        console.log("bodyArray: " + bodyArray);
         for (var index in bodyArray)
         {
             var body = bodyArray[index];
