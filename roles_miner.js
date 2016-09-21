@@ -52,16 +52,15 @@ var miner = {
         var helperSpawn = source.pos.findClosestByPath(FIND_MY_SPAWNS);
         var steps = helperSpawn.pos.findPathTo(source).length * 2;
         var creepsNeeded = Math.round((steps * 8) / 100);
-        console.log("creepsNeeded: " + creepsNeeded);
         if(creepsNeeded > 5)
             creepsNeeded = 5;
-        console.log("gets here");
+
         for(var i = 0; i < creepsNeeded; i++)
             Memory.spawnQue.unshift({ type: 'miner_helper', memory: {
                 miner: creep.id
             }});
 
-        console.log(creep.memory.helpersNeeded = creepsNeeded);
+        creep.memory.helpersNeeded = creepsNeeded;
     },
 
     onSpawn: function()
