@@ -79,7 +79,7 @@ var helper = {
         }
 
         var target = null;
-        console.log("I'm here");
+        //console.log("I'm here");
         //Okay, everything below is for dropping energy off
 
         if (!target) {
@@ -97,7 +97,7 @@ var helper = {
             if (spawn)
                 target = spawn;
         }
-
+        console.log("I'm here1");
         //Let's get the direction we want to go in
         var targetDirection = creep.pos.findPathTo(target, { ignoreCreeps: true })[0].direction;
 
