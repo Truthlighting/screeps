@@ -20,7 +20,7 @@ module.exports ={
 
     memory: function() {
         if(Memory.spawnQue == undefined)
-            Memory.spawnQue = [ ];
+            console.log("memory spawnque: " + Memory.spawnQue = [ ]);
 
         if(Memory.sources == undefined)
             Memory.sources = { };
