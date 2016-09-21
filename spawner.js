@@ -44,7 +44,7 @@ module.exports =
             role = { type: role, memory: { } };
         }
         var me = this;
-        //console.log(spawns);
+        console.log(spawns);
         var toSpawnAt = spawns.filter(function(spawn)
         {
             //console.log("spawn: " + spawn + " role.type: " + role.type);
