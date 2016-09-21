@@ -115,7 +115,7 @@ var helper = {
             rightDir += 8;
         if (rightDir > 8)
             rightDir -= 8;
-
+        console.log("I'm here 2");
         var courier = creep.pos.findClosestByPath(FIND_MY_CREEPS, {
             filter: function (possibleTarget) {
                 return (
