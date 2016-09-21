@@ -83,6 +83,7 @@ var miner = {
 
     action: function()
     {
+        console.log("I'm here");
         var creep = this.creep;
 
         //Basically, each miner can empty a whole source by themselves. Also, since they're slow, we don't have them
