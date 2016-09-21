@@ -108,9 +108,8 @@ var miner = {
             Memory.sources[source.id] = { id: source.id };
 
         Memory.sources[source.id].miner = creep.id;
-        console.log("source: " + source);
 
-        console.log(creep.moveTo(source));
+        creep.moveTo(source);
         creep.harvest(source);
     }
 };

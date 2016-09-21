@@ -33,7 +33,6 @@ module.exports =
                 return spawn.spawning === undefined || spawn.spawning === null;
             }
         });
-        //console.log(spawns);
 
         if(!spawns.length)
             return;
@@ -55,7 +54,6 @@ module.exports =
         //console.log("toSpawnAt: " + toSpawnAt);
         if(!toSpawnAt.length)
             return;
-        //console.log("getting here1");
         toSpawnAt = toSpawnAt[0];
         this.spawn(role.type, role.memory, toSpawnAt);
 
