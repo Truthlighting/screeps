@@ -20,10 +20,19 @@ module.exports = function(creeps)
             //console.log("role1: ");
             //for (var key in role) { console.log(key); }
         console.log("type of role: " + typeof(role) + " role: " + role);
-        var role = Object.create(role);
+
         //console.log("role2: ");
         //for (var key in role) { console.log(key); }
-        role.setCreep(creep);
-        try { role.run(); } catch(e) { };
+        if (typeof(role) == 'string')
+        {
+            var role = role.setCreep(creep);
+            console.log("role as string: " + role);
+        }
+        else if (typeof(role) == 'object')
+        {
+            var role = Object.create(role);
+            role.setCreep(creep);
+        }
+        try { role.run(); } catch(e) { }
     }
 };
