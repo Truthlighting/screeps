@@ -102,7 +102,7 @@ var helper = {
             if (!energyStructure) {energyStructure = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                     filter: (s) => s.energy < s.energyCapacity && s.structureType != STRUCTURE_CONTAINER && s.structureType != STRUCTURE_LINK
             });}
-            console.log(_.valuesIn(energyStructure));
+            //console.log(_.valuesIn(energyStructure));
             //var energyStructure = creep.room.findClosestByPath((energyStructures));
             //console.log("energyStructure: " + energyStructure);
             //If we found it, set it as our target
@@ -118,7 +118,8 @@ var helper = {
         console.log("i'm here");
         for (var i in target) {console.log(i)};
         console.log(creep.pos.findPathTo(target));
-        var targetDirection = creep.pos.findPathTo(target, { ignoreCreeps: true })[0].direction;
+        //var targetDirection = creep.pos.findPathTo(target, { ignoreCreeps: true })[0].direction;
+        var targetDirection = creep.pos.findPathTo(energyStructure, { ignoreCreeps: true })[0].direction;
         console.log("I'm here 3");
         //Let's look for a courier in that direction. We'll check on making sure they're the right
         //role, if they can hold any energy, if they're in range and if they're in the same direction
