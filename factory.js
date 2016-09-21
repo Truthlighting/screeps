@@ -7,6 +7,7 @@ module.exports ={
     init: function()
     {
         console.log("I'm here");
+        console.log("Memory.factoryInit: " + Memory.factoryInit);
         if(Memory.factoryInit != undefined)
             return;
         console.log("Initializing factory.");
