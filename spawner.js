@@ -44,7 +44,6 @@ module.exports =
         {
             role = { type: role, memory: { } };
         }
-        var body = [];
         var me = this;
         //console.log(spawns);
         var toSpawnAt = spawns.filter(function(spawn)
@@ -58,14 +57,14 @@ module.exports =
             return;
         //console.log("getting here1");
         toSpawnAt = toSpawnAt[0];
-        this.spawn(role.type, role.memory, toSpawnAt, body);
+        this.spawn(role.type, role.memory, toSpawnAt);
 
         Memory.spawnQue.shift();
     },
 
     spawn: function(role, memory, spawnPoint)
     {
-        //console.log("role: " + role + " memory: " + memory + " spawnPoint: " + spawnPoint);
+        console.log("role: " + role + " memory: " + memory + " spawnPoint: " + spawnPoint);
         if(!spawnPoint)
             spawnPoint = Game.spawns['Harmony'];
 
