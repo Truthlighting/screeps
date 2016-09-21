@@ -92,7 +92,7 @@ var helper = {
                                 (structure.energy < structure.energyCapacity);
                             }
             })
-            console.log("I'm here1");
+            console.log("spawn: " + spawn);
             //If we found it, set it as our target
             if (spawn)
                 target = spawn;
