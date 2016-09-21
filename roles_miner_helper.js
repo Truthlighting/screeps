@@ -137,7 +137,7 @@ var helper = {
             target = courier;
             target.memory.courier = true;
         }
-
+        console.log("target: " + target);
         //If we're near to the target, either give it our energy or drop it
         if (creep.pos.isNearTo(target)) {
             if (_.sum(target.carry) < target.carryCapacity) {
