@@ -95,7 +95,7 @@ var helper = {
             })
             //console.log("I'm heree!");
             //console.log(creep.room.findClosestByPath(energyStructures));
-            console.log(_.valuesIn(energyStructures));
+            //console.log(_.valuesIn(energyStructures));
             //console.log(creep.room);
             var energyStructure = creep.room.findClosestByPath(_.valuesIn(energyStructures));
             console.log("energyStructure: " + energyStructure);
