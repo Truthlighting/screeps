@@ -85,20 +85,25 @@ var helper = {
         if (!target) {
             //console.log("I'm heree");
             //var spawn = creep.pos.findClosestByPath(FIND_MY_SPAWNS);
-            var energyStructures = creep.room.find(FIND_STRUCTURES, {
+            /*var energyStructures = creep.room.find(FIND_STRUCTURES, {
                             filter: (structure) => {
                                 return (structure.structureType == STRUCTURE_EXTENSION ||
                                 structure.structureType == STRUCTURE_SPAWN) &&
                 //            structure.structureType == STRUCTURE_TOWER) &&
                                 (structure.energy < structure.energyCapacity);
                             }
-            })
+            })*/
             //console.log("I'm heree!");
             //console.log(creep.room.findClosestByPath(energyStructures));
             //console.log(_.valuesIn(energyStructures));
             //console.log(creep.room);
-            var energyStructure = creep.room.findClosestByPath(_.valuesIn(energyStructures));
-            console.log("energyStructure: " + energyStructure);
+            //for (var i in energyStructures) { console.log}
+            var energyStructure = {};
+            if (!energyStructure) {energyStructure = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+                    filter: (s) => s.energy < s.energyCapacity && s.structureType != STRUCTURE_CONTAINER && s.structureType != STRUCTURE_LINK
+            });}
+            //var energyStructure = creep.room.findClosestByPath((energyStructures));
+            //console.log("energyStructure: " + energyStructure);
             //If we found it, set it as our target
             if (energyStructure)
                 target = energyStructure;
