@@ -116,6 +116,7 @@ var helper = {
         //console.log(" creep.pos.findPathTo: " + creep.pos.findPathTo(target));
         //Let's get the direction we want to go in
         console.log("i'm here");
+        for (var i in target) {console.log(i)};
         console.log(creep.pos.findPathTo(target));
         var targetDirection = creep.pos.findPathTo(target, { ignoreCreeps: true })[0].direction;
         console.log("I'm here 3");
