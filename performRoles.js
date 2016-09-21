@@ -14,20 +14,20 @@ module.exports = function(creeps)
             continue;
 
         var role = creep.memory.role;
-        console.log("role: " + role + " roleManager.roleExists(role): " + roleManager.roleExists(role));
+        //console.log("role: " + role + " roleManager.roleExists(role): " + roleManager.roleExists(role));
         if(roleManager.roleExists(role))
             role = roleManager.getRole(role);
             //console.log("role1: ");
             //for (var key in role) { console.log(key); }
-        console.log("type of role: " + typeof(role) + " role: " + role);
+        //console.log("type of role: " + typeof(role) + " role: " + role);
 
         //console.log("role2: ");
         //for (var key in role) { console.log(key); }
         if (typeof(role) == 'string')
         {
-            var newRole = JSON.parse(role);
+            //var newRole = JSON.parse(role);
             //var role = role.setCreep(creep);
-            console.log("role as string: " + newRole);
+            //console.log("role as string: " + newRole);
         }
         else if (typeof(role) == 'object')
         {
