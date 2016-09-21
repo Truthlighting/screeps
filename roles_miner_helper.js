@@ -67,6 +67,7 @@ var helper = {
                 creep.pickup(energy);
             }
             else {
+                console.log("miner.memory.isNearSource: " + miner.memory.isNearSource);
                 if (miner.memory.isNearSource)
                     creep.moveTo(miner);
             }
