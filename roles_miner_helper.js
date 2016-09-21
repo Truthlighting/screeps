@@ -102,7 +102,7 @@ var helper = {
             if (!energyStructure) {energyStructure = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
                     filter: (s) => s.energy < s.energyCapacity && s.structureType != STRUCTURE_CONTAINER && s.structureType != STRUCTURE_LINK
             });}
-            console.log(energyStructure);
+            console.log(_.valuesIn(energyStructure));
             //var energyStructure = creep.room.findClosestByPath((energyStructures));
             //console.log("energyStructure: " + energyStructure);
             //If we found it, set it as our target
