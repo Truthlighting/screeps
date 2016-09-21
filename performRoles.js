@@ -19,7 +19,7 @@ module.exports = function(creeps)
             role = roleManager.getRole(role);
             //console.log("role1: ");
             //for (var key in role) { console.log(key); }
-        console.log("type of role: " + typeof(role));
+        console.log("type of role: " + typeof(role) + " role: " + role);
         var role = Object.create(role);
         //console.log("role2: ");
         //for (var key in role) { console.log(key); }
