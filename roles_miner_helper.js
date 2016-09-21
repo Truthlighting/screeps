@@ -62,7 +62,7 @@ var helper = {
         //console.log("miner: " + miner);
         console.log("creep:" + creep);
         console.log("creep.carry: (" + _.sum(creep.carry) + ") < creep.carryCapacity (" + creep.carryCapacity + ")");
-        console.log(creep.carry < creep.carryCapacity);
+        console.log(_.sum(creep.carry) < creep.carryCapacity);
         if (_.sum(creep.carry) < creep.carryCapacity) {
             console.log("i'm here");
             if (creep.pos.isNearTo(miner)) {
