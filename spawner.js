@@ -51,7 +51,7 @@ module.exports =
             //console.log(me.canSpawn(spawn, role.type));
             return me.canSpawn(spawn, role.type);
         });
-        //console.log("toSpawnAt: " + toSpawnAt);
+        console.log("toSpawnAt: " + toSpawnAt);
         if(!toSpawnAt.length)
             return;
         toSpawnAt = toSpawnAt[0];
