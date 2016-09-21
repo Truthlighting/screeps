@@ -51,7 +51,7 @@ module.exports =
             //console.log(me.canSpawn(spawn, role.type));
             return me.canSpawn(spawn, role.type);
         });
-        console.log("toSpawnAt: " + toSpawnAt);
+        //console.log("toSpawnAt: " + toSpawnAt);
         if(!toSpawnAt.length)
             return;
         toSpawnAt = toSpawnAt[0];
@@ -62,7 +62,7 @@ module.exports =
 
     spawn: function(role, memory, spawnPoint)
     {
-        console.log("role: " + role + " memory: " + memory + " spawnPoint: " + spawnPoint);
+        //console.log("role: " + role + " memory: " + memory + " spawnPoint: " + spawnPoint);
         if(!spawnPoint)
             spawnPoint = Game.spawns['Harmony'];
 
@@ -116,7 +116,7 @@ module.exports =
     {
         var manager = require('roleManager');
         var bodyArray = manager.getRoleBodyParts(role);
-        console.log("bodyArray: " + bodyArray);
+        //console.log("bodyArray: " + bodyArray);
         for (var index in bodyArray)
         {
             var body = bodyArray[index];
