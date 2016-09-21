@@ -36,7 +36,7 @@ module.exports = {
         if (roleObject.getParts !== undefined) {
             //console.log("role.getParts.call(role): " + role.getParts.call(role));
             console.log("returning A");
-            return roleObject.getParts.call(role);
+            return roleObject.getParts.call(roleObject);
         } else
         {
             console.log("returning B");
